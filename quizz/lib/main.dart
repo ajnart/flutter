@@ -2,7 +2,14 @@ import 'package:flutter/widgets.dart';
 
 import 'package:flutter/material.dart';
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return AppState();
+  }
+}
+
+class AppState extends State<App> {
   var questionIndex = 0;
   var questions = [
     'Do you like apples ? 🍎',
@@ -18,9 +25,9 @@ class App extends StatelessWidget {
         ),
         body: Column(
           children: <Widget>[
-            Text(questions.elementAt(0)),
+            Text(questions.elementAt(questionIndex)),
             ElevatedButton(
-              onPressed: () => {},
+              onPressed: () => {questionIndex += 1, print(questionIndex)},
               child: Text('Say hello'),
               autofocus: true,
             )
