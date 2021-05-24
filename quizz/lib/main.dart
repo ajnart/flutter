@@ -7,11 +7,12 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text('Appbar'),),
+        appBar: AppBar(
+          title: Text('Appbar'),
+        ),
       ),
     );
   }
 }
 
 void main() => runApp(App());
-
