@@ -10,6 +10,9 @@ class App extends StatelessWidget {
         appBar: AppBar(
           title: Text('Appbar'),
         ),
+        body: Column(children: <Widget>[
+          ElevatedButton(onPressed: null, child: Text('Say hello'), autofocus: true,)
+        ],),
       ),
     );
   }
