@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
-
 import 'package:flutter/material.dart';
+
+import './question.dart';
 
 class App extends StatefulWidget {
   @override
@@ -25,9 +26,16 @@ class AppState extends State<App> {
         ),
         body: Column(
           children: <Widget>[
-            Text(questions.elementAt(questionIndex)),
+            Question(
+              questions.elementAt(questionIndex)
+            ),
             ElevatedButton(
-              onPressed: () => {questionIndex += 1, print(questionIndex)},
+              onPressed: () => {
+                setState(() {
+                  if (questionIndex < questions.length - 1) questionIndex += 1;
+                }),
+                print(questionIndex)
+              },
               child: Text('Say hello'),
               autofocus: true,
             )
