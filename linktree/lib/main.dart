@@ -171,7 +171,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: SocialButton(
                         url: 'mailto://thomascamlong.pro@gmail.com',
                         icon: MdiIcons.gmail,
-                        iconColor: Colors.red[600],
+                        iconColor: Colors.red[900],
                         label: "Mail",
                       ),
                     ),
