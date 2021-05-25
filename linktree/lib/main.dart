@@ -1,8 +1,8 @@
 // ignore: avoid_web_libraries_in_flutter
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import './constants.dart';
 import './social_button.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 void main() {
   runApp(MyApp());
@@ -125,7 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: SocialButton(
                         url: 'https://www.linkedin.com/in/thomas-camlong/',
                         icon: MdiIcons.linkedin,
-                        iconColor: Colors.blue[800],
+                        iconColor: Colors.blue.shade800,
                         label: "LinkedIn",
                       ),
                     ),
@@ -171,7 +171,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: SocialButton(
                         url: 'mailto://thomascamlong.pro@gmail.com',
                         icon: MdiIcons.gmail,
-                        iconColor: Colors.red[900],
+                        iconColor: Colors.red.shade800,
                         label: "Mail",
                       ),
                     ),

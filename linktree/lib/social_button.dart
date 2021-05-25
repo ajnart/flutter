@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:simple_animations/simple_animations.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:supercharged/supercharged.dart';
 
 class SocialButton extends StatelessWidget {
-  const SocialButton({
-    Key key,
-    this.url,
-    this.icon,
-    this.iconColor,
-    this.label,
-  }) : super(key: key);
+  SocialButton({
+    required this.url,
+    required this.icon,
+    required this.iconColor,
+    required this.label,
+  });
 
   final String url;
   final IconData icon;
@@ -17,35 +18,41 @@ class SocialButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () => _launchURL(url),
-      child: Wrap(
-        children: [
-          Column(
-            children: [
-              Icon(
-                icon,
-                color: iconColor,
-                size: 40,
-              ),
-              Text(
-                label,
-              ),
-            ],
-          ),
-        ],
-      ),
-      style: ButtonStyle(
-        elevation: MaterialStateProperty.all(3),
-        minimumSize: MaterialStateProperty.all(Size(200, 80)),
-        overlayColor: MaterialStateProperty.all(Colors.grey[100]),
-        backgroundColor: MaterialStateProperty.all(Colors.white),
-        foregroundColor: MaterialStateProperty.all(Color(0xFF000028)),
-        padding: MaterialStateProperty.all(
-            EdgeInsets.symmetric(vertical: 15, horizontal: 50)),
-        textStyle: MaterialStateProperty.all(TextStyle(fontSize: 22)),
-      ),
-    );
+    return PlayAnimation<int?>(
+        tween: 1.tweenTo(200),
+        duration: 3.seconds, // define duration
+        builder: (context, child, value) {
+          return ElevatedButton(
+            onPressed: () => _launchURL(url),
+            child: Wrap(
+              children: [
+                Column(
+                  children: [
+                    Icon(
+                      icon,
+                      color: iconColor,
+                      size: 40,
+                    ),
+                    Text(
+                      label,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            style: ButtonStyle(
+              elevation: MaterialStateProperty.all(3),
+              minimumSize:
+                  MaterialStateProperty.all(Size(value!.toDouble(), 80)),
+              overlayColor: MaterialStateProperty.all(Colors.grey[100]),
+              backgroundColor: MaterialStateProperty.all(Colors.white),
+              foregroundColor: MaterialStateProperty.all(Color(0xFF000028)),
+              padding: MaterialStateProperty.all(
+                  EdgeInsets.symmetric(vertical: 15, horizontal: 50)),
+              textStyle: MaterialStateProperty.all(TextStyle(fontSize: 22)),
+            ),
+          );
+        });
   }
 
   void _launchURL(url) async =>
