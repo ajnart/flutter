@@ -11,6 +11,8 @@ class App extends StatefulWidget {
 }
 
 class AppState extends State<App> {
+  ThemeMode getCurrentTheme() => _isDark ? ThemeMode.dark : ThemeMode.light;
+  static bool _isDark = false;
   var questionIndex = 0;
   var answers = [
     ['Yes', 'No'],
@@ -33,9 +35,29 @@ class AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      themeMode: getCurrentTheme(),
       home: Scaffold(
         appBar: AppBar(
           title: Text('Appbar'),
+        ),
+        bottomSheet: Padding(
+          padding: EdgeInsets.all(8.5),
+          child:
+              //your elements here
+              ElevatedButton(
+            onPressed: () => setState(() {
+              _isDark = !_isDark;
+            }),
+            child: Icon(
+              Icons.dark_mode,
+              color: _isDark
+                  ? Theme.of(context).primaryColorLight
+                  : Theme.of(context).primaryColorDark,
+              size: 30.0,
+            ),
+          ),
         ),
         body: Column(
           children: <Widget>[
