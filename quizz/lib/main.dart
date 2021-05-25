@@ -12,22 +12,36 @@ class App extends StatefulWidget {
 
 class AppState extends State<App> {
   Widget darkModeManager() {
-    return (Padding(
-      padding: EdgeInsets.all(8.5),
-      child:
-          //your elements here
-          ElevatedButton(
-        onPressed: () => setState(() {
-          _isDark = !_isDark;
-        }),
-        child: Icon(
-          Icons.dark_mode,
-          color: _isDark
-              ? Theme.of(context).primaryColorLight
-              : Theme.of(context).primaryColorDark,
-          size: 30.0,
+    return (Row(
+      children: [
+        Padding(
+          padding: EdgeInsets.all(8.5),
+          child:
+              //your elements here
+              ElevatedButton(
+            onPressed: () => setState(() {
+              _isDark = !_isDark;
+            }),
+            child: Icon(
+              Icons.dark_mode,
+              color: _isDark
+                  ? Theme.of(context).primaryColorLight
+                  : Theme.of(context).primaryColorDark,
+              size: 30.0,
+            ),
+          ),
         ),
-      ),
+        Padding(
+            padding: EdgeInsets.all(8.5),
+            child: ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  if (questionIndex > 0) questionIndex -= 1;
+                });
+              },
+              child: Icon(Icons.arrow_back),
+            )),
+      ],
     ));
   }
 
