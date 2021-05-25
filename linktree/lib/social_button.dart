@@ -41,6 +41,10 @@ class SocialButton extends StatelessWidget {
               ],
             ),
             style: ButtonStyle(
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5.0),
+                      side: BorderSide(color: Colors.black26))),
               elevation: MaterialStateProperty.all(3),
               minimumSize:
                   MaterialStateProperty.all(Size(value!.toDouble(), 80)),
