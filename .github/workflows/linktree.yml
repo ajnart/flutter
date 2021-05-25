@@ -1,5 +1,8 @@
 name: Build and Deploy
-on: [push]
+on: 
+  push:
+    paths:
+      - 'linktree/**'
 jobs:
   build_web:
     name: Build Flutter (Web)

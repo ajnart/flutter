@@ -1,6 +1,8 @@
 name: CI
 on:
-  [push]
+  push:
+    paths:
+      - 'quiz/**'
 
 jobs:
   build_ios:
