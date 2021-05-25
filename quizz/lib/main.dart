@@ -12,6 +12,11 @@ class App extends StatefulWidget {
 
 class AppState extends State<App> {
   var questionIndex = 0;
+  var answers = [
+    ['Yes', 'No'],
+    ['Yes', 'No'],
+    ['Cat 🐈', 'Dog 🐕', 'Panda 🐼', 'Cow 🐄'],
+  ];
   var questions = [
     'Do you like apples ? 🍎',
     'Do you like skiing ? ⛷',
@@ -26,19 +31,17 @@ class AppState extends State<App> {
         ),
         body: Column(
           children: <Widget>[
-            Question(
-              questions.elementAt(questionIndex)
-            ),
-            ElevatedButton(
-              onPressed: () => {
-                setState(() {
-                  if (questionIndex < questions.length - 1) questionIndex += 1;
-                }),
-                print(questionIndex)
-              },
-              child: Text('Say hello'),
-              autofocus: true,
-            )
+            Question(questions.elementAt(questionIndex)),
+            for ( var i in answers.elementAt(questionIndex))
+              ElevatedButton(
+                onPressed: () => {
+                  setState(() {
+                    if (questionIndex < questions.length - 1) questionIndex += 1;
+                  }),
+                },
+                child: Text(i),
+                autofocus: true,
+              )
           ],
         ),
       ),
