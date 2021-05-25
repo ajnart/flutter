@@ -4,6 +4,7 @@ on:
 
 jobs:
   build_ios:
+    working-directory: ./quizz
     name: Build Flutter (iOS)
     runs-on: macOS-latest
     steps:
@@ -23,6 +24,7 @@ jobs:
         name: ios-build
         path: build/ios/iphoneos
   build_apk:
+    working-directory: ./quizz
     name: Build Flutter (Android)
     runs-on: ubuntu-latest
     steps:
@@ -42,3 +44,22 @@ jobs:
       with:
         name: apk-build
         path: build/app/outputs/apk/release
+  build_web:
+    working-directory: ./quizz
+    name: Build Flutter (Web)
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: subosito/flutter-action@v1
+      with:
+          channel: 'dev'
+    - run: flutter pub get
+    - run: flutter config --enable-web
+    - run: flutter build web
+    - name: Deploy to Firebase
+      uses: w9jds/firebase-action@master
+      with:
+        args: deploy --only hosting --public build/web
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        PROJECT_ID: default
