@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'quiz/**'
+      - '.github/workflows/quizz.yml'
 
 jobs:
   build_ios:

@@ -3,7 +3,7 @@ on:
   push:
     paths:
       - 'linktree/**'
-      - '.github/linktree.yml'
+      - '.github/workflows/linktree.yml'
 jobs:
   build_web:
     name: Build Flutter (Web)
