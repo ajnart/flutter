@@ -11,6 +11,26 @@ class App extends StatefulWidget {
 }
 
 class AppState extends State<App> {
+  Widget darkModeManager() {
+    return (Padding(
+      padding: EdgeInsets.all(8.5),
+      child:
+          //your elements here
+          ElevatedButton(
+        onPressed: () => setState(() {
+          _isDark = !_isDark;
+        }),
+        child: Icon(
+          Icons.dark_mode,
+          color: _isDark
+              ? Theme.of(context).primaryColorLight
+              : Theme.of(context).primaryColorDark,
+          size: 30.0,
+        ),
+      ),
+    ));
+  }
+
   ThemeMode getCurrentTheme() => _isDark ? ThemeMode.dark : ThemeMode.light;
   static bool _isDark = false;
   var questionIndex = 0;
@@ -19,7 +39,7 @@ class AppState extends State<App> {
     'Do you like skiing ? ⛷',
     'What\'s your favorite animal ? 🐕',
   ];
-  void buttonPressed(int id, List<String> questions) {
+  void buttonPressed(int id) {
     setState(() {
       if (questionIndex < questions.length - 1) questionIndex += 1;
     });
@@ -35,23 +55,7 @@ class AppState extends State<App> {
         appBar: AppBar(
           title: Text('Appbar'),
         ),
-        bottomSheet: Padding(
-          padding: EdgeInsets.all(8.5),
-          child:
-              //your elements here
-              ElevatedButton(
-            onPressed: () => setState(() {
-              _isDark = !_isDark;
-            }),
-            child: Icon(
-              Icons.dark_mode,
-              color: _isDark
-                  ? Theme.of(context).primaryColorLight
-                  : Theme.of(context).primaryColorDark,
-              size: 30.0,
-            ),
-          ),
-        ),
+        bottomSheet: darkModeManager(),
         body: Column(
           children: <Widget>[
             Question(questionIndex, questions),
