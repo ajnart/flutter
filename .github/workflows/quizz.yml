@@ -41,14 +41,14 @@ jobs:
       with:
           channel: 'dev'
     - run: flutter pub get
-#     - run: flutter build apk --target-platform android-arm,android-arm64 --split-per-abi
+    - run: flutter build apk --target-platform android-arm,android-arm64 --split-per-abi
 #     - run: flutter build appbundle --target-platform android-arm,android-arm64
     - run: flutter build appbundle
     - name: Upload APK
       uses: actions/upload-artifact@master
       with:
         name: apk-build
-        path: quizz/build/app/outputs/apk/release
+        path: quizz/build/app/outputs/flutter-apk/
 
   build_web:
     name: Build Flutter (Web)
