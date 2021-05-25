@@ -48,7 +48,8 @@ class AppState extends State<App> {
                     padding: EdgeInsets.all(8.0),
                     child: ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Color(0xFF14979c)),
+                        backgroundColor: MaterialStateProperty.all(
+                            Theme.of(context).colorScheme.primaryVariant),
                       ),
                       onPressed: () => buttonPressed(
                           answers.elementAt(questionIndex).indexOf(i)),
