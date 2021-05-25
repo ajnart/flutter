@@ -20,7 +20,8 @@ jobs:
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
       with:
-        args: deploy --only hosting --public linktree/build/web
+        args: deploy --only hosting --public build/web
       env:
+        working-directory: ./linktree
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         PROJECT_ID: default
