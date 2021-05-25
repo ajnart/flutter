@@ -20,6 +20,7 @@ class Answers extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8.0),
             child: ElevatedButton(
+              key: Key(i),
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(
                     Theme.of(context).colorScheme.primaryVariant),
