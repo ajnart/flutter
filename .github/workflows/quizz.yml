@@ -2,9 +2,11 @@ name: CI
 on:
   [push]
 
+defaults:
+  working-directory: ./quizz
+
 jobs:
   build_ios:
-    working-directory: ./quizz
     name: Build Flutter (iOS)
     runs-on: macOS-latest
     steps:
@@ -24,7 +26,6 @@ jobs:
         name: ios-build
         path: build/ios/iphoneos
   build_apk:
-    working-directory: ./quizz
     name: Build Flutter (Android)
     runs-on: ubuntu-latest
     steps:
@@ -45,7 +46,6 @@ jobs:
         name: apk-build
         path: build/app/outputs/apk/release
   build_web:
-    working-directory: ./quizz
     name: Build Flutter (Web)
     runs-on: ubuntu-latest
     steps:
