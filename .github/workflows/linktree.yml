@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Link 🔗 Tree 🌲
 on: 
   push:
     paths:
