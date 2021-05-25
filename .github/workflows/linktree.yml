@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'linktree/**'
+      - '.github/linktree.yml'
 jobs:
   build_web:
     name: Build Flutter (Web)
@@ -19,10 +20,9 @@ jobs:
 
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
-      run:
-        working-directory: ./linktree
       with:
         args: deploy --only hosting --public build/web
       env:
+        PROJECT_PATH: ./linktree
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         PROJECT_ID: default
