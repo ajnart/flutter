@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   socialName,
                   style: normalText(
                     //color: textColor,
-                    fontSize: 28,
+                    fontSize: 27,
                     color: Colors.black87,
                     fontWeight: FontWeight.bold,
                   ),
