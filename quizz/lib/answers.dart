@@ -32,7 +32,7 @@ class Answers extends StatelessWidget {
                     answers.elementAt(questionIndex).indexOf(i));
               },
               child: Text(i),
-              autofocus: true,
+              autofocus: false,
             ),
           ),
       ],
