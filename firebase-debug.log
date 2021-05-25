@@ -1,0 +1,21 @@
+[debug] [2021-05-25T20:35:08.876Z] ----------------------------------------------------------------------
+[debug] [2021-05-25T20:35:08.877Z] Command:       C:\Program Files (x86)\nodejs\node.exe C:\Users\ajna\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2021-05-25T20:35:08.877Z] CLI Version:   9.11.0
+[debug] [2021-05-25T20:35:08.878Z] Platform:      win32
+[debug] [2021-05-25T20:35:08.878Z] Node Version:  v16.2.0
+[debug] [2021-05-25T20:35:08.879Z] Time:          Tue May 25 2021 22:35:08 GMT+0200 (heure d’été d’Europe centrale)
+[debug] [2021-05-25T20:35:08.879Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-05-25T20:35:08.884Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-05-25T20:35:08.884Z] > authorizing via signed-in user (thomascamlong@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\ajna\Documents\Code\Udemy\Flutter
+
