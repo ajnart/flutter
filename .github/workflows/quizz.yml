@@ -24,7 +24,7 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         name: ios-build
-        path: build/ios/iphoneos
+        path: quizz/build/ios/iphoneos
 
   build_apk:
     name: Build Flutter (Android)
@@ -48,7 +48,7 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         name: apk-build
-        path: build/app/outputs/apk/release
+        path: quizz/build/app/outputs/apk/release
 
   build_web:
     name: Build Flutter (Web)
@@ -68,7 +68,7 @@ jobs:
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
       with:
-        args: deploy --only hosting --public build/web
+        args: deploy --only hosting --public quizz/build/web
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         PROJECT_ID: default
