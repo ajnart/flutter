@@ -32,16 +32,25 @@ class AppState extends State<App> {
         body: Column(
           children: <Widget>[
             Question(questions.elementAt(questionIndex)),
-            for ( var i in answers.elementAt(questionIndex))
-              ElevatedButton(
-                onPressed: () => {
-                  setState(() {
-                    if (questionIndex < questions.length - 1) questionIndex += 1;
-                  }),
-                },
-                child: Text(i),
-                autofocus: true,
-              )
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                for (var i in answers.elementAt(questionIndex))
+                  Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                      onPressed: () => {
+                        setState(() {
+                          if (questionIndex < questions.length - 1)
+                            questionIndex += 1;
+                        }),
+                      },
+                      child: Text(i),
+                      autofocus: true,
+                    ),
+                  ),
+              ],
+            ),
           ],
         ),
       ),
