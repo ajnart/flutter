@@ -22,6 +22,14 @@ class AppState extends State<App> {
     'Do you like skiing ? ⛷',
     'What\'s your favorite animal ? 🐕',
   ];
+
+  void buttonPressed(int id) {
+    print('Clicked on button $id');
+    setState(() {
+      if (questionIndex < questions.length - 1) questionIndex += 1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -35,16 +43,15 @@ class AppState extends State<App> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                for (var i in answers.elementAt(questionIndex))
+                for (String i in answers.elementAt(questionIndex))
                   Padding(
                     padding: EdgeInsets.all(8.0),
                     child: ElevatedButton(
-                      onPressed: () => {
-                        setState(() {
-                          if (questionIndex < questions.length - 1)
-                            questionIndex += 1;
-                        }),
-                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Color(0xFF14979c)),
+                      ),
+                      onPressed: () => buttonPressed(
+                          answers.elementAt(questionIndex).indexOf(i)),
                       child: Text(i),
                       autofocus: true,
                     ),
