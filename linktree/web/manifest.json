@@ -1,11 +1,11 @@
 {
-    "name": "linktree",
-    "short_name": "linktree",
+    "name": "Ajnart's link tree",
+    "short_name": "Ajnart's link tree",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "A simple linktree demo.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
