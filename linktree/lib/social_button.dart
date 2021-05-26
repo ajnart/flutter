@@ -19,8 +19,8 @@ class SocialButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PlayAnimation<int?>(
-        tween: 1.tweenTo(200),
-        duration: 3.seconds, // define duration
+        tween: 1.tweenTo(100),
+        duration: 4.seconds, // define duration
         builder: (context, child, value) {
           return ElevatedButton(
             onPressed: () => _launchURL(url),
@@ -28,13 +28,19 @@ class SocialButton extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    Icon(
-                      icon,
-                      color: iconColor,
-                      size: 40,
+                    FittedBox(
+                      fit: BoxFit.cover,
+                      child: Icon(
+                        icon,
+                        size: 40,
+                        color: iconColor,
+                      ),
                     ),
-                    Text(
-                      label,
+                    FittedBox(
+                      fit: BoxFit.cover,
+                      child: Text(
+                        label,
+                      ),
                     ),
                   ],
                 ),
@@ -46,13 +52,11 @@ class SocialButton extends StatelessWidget {
                       borderRadius: BorderRadius.circular(5.0),
                       side: BorderSide(color: Colors.black26))),
               elevation: MaterialStateProperty.all(3),
-              minimumSize: MaterialStateProperty.all(Size(10, 40)),
+              minimumSize: MaterialStateProperty.all(
+                  Size(value!.toDouble() + 50, value.toDouble())),
               overlayColor: MaterialStateProperty.all(Colors.grey[100]),
               backgroundColor: MaterialStateProperty.all(Colors.white),
               foregroundColor: MaterialStateProperty.all(Color(0xFF000028)),
-              padding: MaterialStateProperty.all(
-                  EdgeInsets.symmetric(vertical: 15, horizontal: 50)),
-              textStyle: MaterialStateProperty.all(TextStyle(fontSize: 22)),
             ),
           );
         });
