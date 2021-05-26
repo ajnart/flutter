@@ -46,8 +46,7 @@ class SocialButton extends StatelessWidget {
                       borderRadius: BorderRadius.circular(5.0),
                       side: BorderSide(color: Colors.black26))),
               elevation: MaterialStateProperty.all(3),
-              minimumSize:
-                  MaterialStateProperty.all(Size(value!.toDouble(), 80)),
+              minimumSize: MaterialStateProperty.all(Size(10, 40)),
               overlayColor: MaterialStateProperty.all(Colors.grey[100]),
               backgroundColor: MaterialStateProperty.all(Colors.white),
               foregroundColor: MaterialStateProperty.all(Color(0xFF000028)),
