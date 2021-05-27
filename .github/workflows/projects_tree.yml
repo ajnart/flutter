@@ -29,11 +29,11 @@ jobs:
         flutter build web --web-renderer html --release
         cd ..
         mkdir projects_tree/build/web/linktree
-        cp -R linktree/build/web/linktree projects_tree/build/web/linktree
+        cp -R linktree/build/web/ projects_tree/build/web/linktree
         mkdir projects_tree/build/web/quizz
         cp -R quizz/build/web/ projects_tree/build/web/quizz
         mkdir projects_tree/build/web/managment_mockup
-        cp -R managment_mockup/build/web/managment_mockup projects_tree/build/web/managment_mockup
+        cp -R managment_mockup/build/web/ projects_tree/build/web/managment_mockup
         cd projects_tree
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@4.1.3
