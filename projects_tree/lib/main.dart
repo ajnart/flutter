@@ -88,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Padding(
                       padding: EdgeInsets.all(8),
                       child: SocialCard(
-                          url: './linktree/',
+                          url: '/flutter-course/linktree/',
                           asset: './assets/linktree.png',
                           label: "Link Tree",
                           description:
@@ -97,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Padding(
                       padding: EdgeInsets.all(8),
                       child: SocialCard(
-                          url: './managment/',
+                          url: '/flutter-course/managment_mockup/',
                           asset: 'assets/managment.png',
                           label: "Managment mockup",
                           description:
@@ -106,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Padding(
                       padding: EdgeInsets.all(8),
                       child: SocialCard(
-                        url: './quizz/',
+                        url: '/flutter-course/quizz/',
                         description:
                             "My first project! A simple quizz app with a darkmode switch that decides how much you are worth to society",
                         label: "Quizz",
