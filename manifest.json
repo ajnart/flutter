@@ -1,7 +1,7 @@
 {
     "name": "projects_tree",
     "short_name": "projects_tree",
-    "start_url": "./flutter-course",
+    "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
