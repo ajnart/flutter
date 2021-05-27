@@ -1,5 +1,5 @@
 name: Project Tree
-on: 
+on:
   push:
     paths:
       - 'projects_tree/**'
