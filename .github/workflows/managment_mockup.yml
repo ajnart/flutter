@@ -1,0 +1,19 @@
+name: Link 🔗 Tree 🌲
+on: 
+  push:
+    paths:
+      - 'managment_mockup/**'
+      - '.github/workflows/managment_mockup.yml'
+jobs:
+  build_web:
+    name: Build Flutter (Web)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./managment_mockup
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: subosito/flutter-action@v1
+    - run: flutter pub get
+    - run: flutter build web --web-renderer html --release
