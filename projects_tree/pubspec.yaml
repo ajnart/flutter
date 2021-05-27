@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^2.0.0
   getwidget: ^2.0.2
+  material_design_icons_flutter: 5.0.5955-rc.1
 
 dev_dependencies:
   flutter_test:

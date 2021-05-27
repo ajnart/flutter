@@ -1,6 +1,7 @@
 // ignore: avoid_web_libraries_in_flutter
 import 'package:flutter/material.dart';
-import 'package:getwidget/getwidget.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'dart:js' as js;
 import './constants.dart';
 import 'social_card.dart';
 
@@ -79,6 +80,28 @@ class _MyHomePageState extends State<MyHomePage> {
                       fontWeight: FontWeight.w400,
                       height: 1.5,
                       letterSpacing: 0),
+                ),
+                Padding(padding: EdgeInsets.all(8)),
+                ElevatedButton(
+                  onPressed: () => js.context.callMethod(
+                      'open', ['https://github.com/ajnart/flutter-course']),
+                  child: Row(
+                    children: [
+                      Padding(padding: EdgeInsets.all(3)),
+                      Text("GitHub"),
+                      Padding(padding: EdgeInsets.all(3)),
+                      Icon(MdiIcons.github),
+                    ],
+                  ),
+                  style: ButtonStyle(
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                    ),
+                    backgroundColor: MaterialStateProperty.all(Colors.black),
+                    fixedSize: MaterialStateProperty.all(Size(100, 60)),
+                  ),
                 ),
                 const SizedBox(
                   height: 30,
