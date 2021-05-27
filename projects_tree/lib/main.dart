@@ -14,11 +14,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Apps',
+      darkTheme: ThemeData.dark(),
+      themeMode: ThemeMode.light,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.amber,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         bottomSheetTheme:
-            BottomSheetThemeData(backgroundColor: Colors.black.withOpacity(0)),
+            BottomSheetThemeData(backgroundColor: Colors.white.withOpacity(0)),
       ),
       debugShowCheckedModeBanner: false,
       home: MyHomePage(),
@@ -52,16 +54,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Padding(padding: EdgeInsets.all(3)),
                   Icon(
                     MdiIcons.github,
-                    size: MediaQuery.of(context).size.height / 30,
+                    color: Colors.white,
+                    size: MediaQuery.of(context).size.height / 25,
                   ),
                   Padding(padding: EdgeInsets.all(3)),
                   Text(
                     "GitHub",
-                    style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.height / 80),
+                    style: TextStyle(color: Colors.white),
                   ),
                 ],
               ),
@@ -72,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 backgroundColor: MaterialStateProperty.all(Colors.black),
-                fixedSize: MaterialStateProperty.all(Size(100, 60)),
+                fixedSize: MaterialStateProperty.all(Size(120, 60)),
               ),
             ),
           ],
@@ -99,9 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Text(
                         socialName,
                         style: normalText(
-                          //color: textColor,
                           fontSize: 27,
-                          color: Colors.black87,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -115,7 +114,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   description,
                   textAlign: TextAlign.center,
                   style: normalText(
-                      color: textColor,
                       fontSize: 16,
                       fontWeight: FontWeight.w400,
                       height: 1.5,

@@ -35,8 +35,9 @@ class SocialCard extends StatelessWidget {
       ),
       style: ButtonStyle(
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0), side: BorderSide(color: Colors.black26))),
-        overlayColor: MaterialStateProperty.all(Colors.grey[100]),
+            RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0),
+                side: BorderSide(color: Colors.black26))),
         backgroundColor: MaterialStateProperty.all(Colors.white),
         foregroundColor: MaterialStateProperty.all(Color(0xFF000028)),
       ),
