@@ -1,13 +1,26 @@
 import 'package:flutter/material.dart';
+import './answer.dart';
 
-class Question extends StatelessWidget {
-  final int questionIndex;
-  final List<String> questions;
+class Questions extends StatelessWidget {
+  final qna = [
+    {
+      'question': 'Do you like apples ? 🍎',
+      'answers': ['Yes', 'No']
+    },
+    {
+      'question': 'Do you like skiing ? ⛷',
+      'answers': ['Yes', 'No']
+    },
+    {
+      'question': 'What\'s your favorite animal ? 🐕',
+      'answers': ['Cat 🐈', 'Dog 🐕', 'Panda 🐼', 'Cow 🐄']
+    },
+  ];
 
-  Question(
-    this.questionIndex,
-    this.questions,
-  );
+  final questionIndex;
+  final Function callback;
+  Questions(this.callback, this.questionIndex);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,12 +28,16 @@ class Question extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            if (this.questionIndex != this.questions.length) ...[
+            if (this.questionIndex != this.qna.length) ...[
               Text(
-                questions.elementAt(questionIndex),
+                qna.elementAt(questionIndex)['question'] as String,
                 style: TextStyle(fontSize: 20),
                 textAlign: TextAlign.center,
               ),
+              ...(qna.elementAt(questionIndex)['answers'] as List<String>)
+                  .map((answer) {
+                return Answer(answer, callback);
+              }).toList()
             ],
           ],
         ));

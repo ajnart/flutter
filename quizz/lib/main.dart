@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-import './answers.dart';
 import './question.dart';
 
 class App extends StatefulWidget {
@@ -11,6 +10,12 @@ class App extends StatefulWidget {
 }
 
 class AppState extends State<App> {
+  void buttonPressed(String id) {
+    setState(() {
+      if (questionIndex < 2) questionIndex += 1;
+    });
+  }
+
   Widget darkModeManager() {
     return (Row(
       children: [
@@ -48,17 +53,6 @@ class AppState extends State<App> {
   ThemeMode getCurrentTheme() => _isDark ? ThemeMode.dark : ThemeMode.light;
   static bool _isDark = false;
   var questionIndex = 0;
-  final questions = [
-    'Do you like apples ? 🍎',
-    'Do you like skiing ? ⛷',
-    'What\'s your favorite animal ? 🐕',
-  ];
-  void buttonPressed(int id) {
-    setState(() {
-      if (questionIndex < questions.length - 1) questionIndex += 1;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -72,8 +66,7 @@ class AppState extends State<App> {
         bottomSheet: darkModeManager(),
         body: Column(
           children: <Widget>[
-            Question(questionIndex, questions),
-            Answers(questionIndex, buttonPressed),
+            Questions(buttonPressed, questionIndex),
           ],
         ),
       ),
