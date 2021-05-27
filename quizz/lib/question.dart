@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import './answer.dart';
 
 class Questions extends StatelessWidget {
-  final qna = [
+  final qna = const [
     {
       'question': 'Do you like apples ? 🍎',
       'answers': ['Yes', 'No']
