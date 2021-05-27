@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:simple_animations/simple_animations.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:supercharged/supercharged.dart';
 
 class SocialButton extends StatelessWidget {
   SocialButton({
@@ -18,48 +16,38 @@ class SocialButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PlayAnimation<int?>(
-        tween: 1.tweenTo(100),
-        duration: 4.seconds, // define duration
-        builder: (context, child, value) {
-          return ElevatedButton(
-            onPressed: () => _launchURL(url),
-            child: Wrap(
-              children: [
-                Column(
-                  children: [
-                    FittedBox(
-                      fit: BoxFit.cover,
-                      child: Icon(
-                        icon,
-                        size: 40,
-                        color: iconColor,
-                      ),
-                    ),
-                    FittedBox(
-                      fit: BoxFit.cover,
-                      child: Text(
-                        label,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+    return ElevatedButton(
+      onPressed: () => _launchURL(url),
+      child: Column(
+        children: [
+          FittedBox(
+            fit: BoxFit.cover,
+            child: Icon(
+              icon,
+              size: 40,
+              color: iconColor,
             ),
-            style: ButtonStyle(
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5.0),
-                      side: BorderSide(color: Colors.black26))),
-              elevation: MaterialStateProperty.all(3),
-              minimumSize: MaterialStateProperty.all(
-                  Size(value!.toDouble() + 50, value.toDouble())),
-              overlayColor: MaterialStateProperty.all(Colors.grey[100]),
-              backgroundColor: MaterialStateProperty.all(Colors.white),
-              foregroundColor: MaterialStateProperty.all(Color(0xFF000028)),
+          ),
+          FittedBox(
+            fit: BoxFit.cover,
+            child: Text(
+              label,
             ),
-          );
-        });
+          ),
+        ],
+      ),
+      style: ButtonStyle(
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0),
+                side: BorderSide(color: Colors.black26))),
+        elevation: MaterialStateProperty.all(3),
+        minimumSize: MaterialStateProperty.all(Size(150, 100)),
+        overlayColor: MaterialStateProperty.all(Colors.grey[100]),
+        backgroundColor: MaterialStateProperty.all(Colors.white),
+        foregroundColor: MaterialStateProperty.all(Color(0xFF000028)),
+      ),
+    );
   }
 
   void _launchURL(url) async =>

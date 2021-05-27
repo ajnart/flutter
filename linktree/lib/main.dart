@@ -1,6 +1,7 @@
 // ignore: avoid_web_libraries_in_flutter
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 import './constants.dart';
 import './social_button.dart';
 
@@ -36,6 +37,22 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFFEFEFE),
+      bottomSheet: Row(
+        children: [
+          TextButton(
+            onPressed: () => launch("https://flutter.dev/"),
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("Made with flutter"),
+                ),
+                FlutterLogo(),
+              ],
+            ),
+          )
+        ],
+      ),
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
