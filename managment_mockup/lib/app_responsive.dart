@@ -6,7 +6,7 @@ class AppResponsive extends StatelessWidget {
   final Widget desktop;
 
   const AppResponsive(
-      {Key key, @required this.mobile, this.tablet, @required this.desktop})
+      {Key? key, required this.mobile, required this.tablet, required this.desktop})
       : super(key: key);
 
   /// This size work for my design, maybe you need some changes depend on your design
@@ -21,7 +21,7 @@ class AppResponsive extends StatelessWidget {
   Widget build(BuildContext context) {
     if (isDesktop(context)) {
       return desktop;
-    } else if (isTablet(context) && tablet != null) {
+    } else if (isTablet(context)) {
       return tablet;
     } else {
       return mobile;

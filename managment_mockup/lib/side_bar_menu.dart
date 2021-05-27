@@ -30,32 +30,32 @@ class _SideBarState extends State<SideBar> {
             DrawerListTile(
               title: "Dashboard",
               icon: Icons.home,
-              press: () {},
+              press: () {}, Key: null,
             ),
             DrawerListTile(
               title: "Recruitment",
               icon: Icons.menu_book,
-              press: () {},
+              press: () {}, Key: null,
             ),
             DrawerListTile(
               title: "Onboarding",
               icon: Icons.article,
-              press: () {},
+              press: () {}, Key: null,
             ),
             DrawerListTile(
               title: "Reports",
               icon: Icons.analytics,
-              press: () {},
+              press: () {}, Key: null,
             ),
             DrawerListTile(
               title: "Calendar",
               icon: Icons.calendar_today,
-              press: () {},
+              press: () {}, Key: null,
             ),
             DrawerListTile(
               title: "Settings",
               icon: Icons.settings,
-              press: () {},
+              press: () {}, Key: null,
             ),
             Spacer(),
             Image.asset("assets/sidebar_image.png")
@@ -71,8 +71,11 @@ class DrawerListTile extends StatelessWidget {
   final IconData icon;
   final VoidCallback press;
 
-  const DrawerListTile({Key key, this.title, this.icon, this.press})
-      : super(key: key);
+  const DrawerListTile(
+      {required Key,
+      required this.title,
+      required this.icon,
+      required this.press});
   @override
   Widget build(BuildContext context) {
     return ListTile(
