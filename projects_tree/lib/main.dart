@@ -49,11 +49,20 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () => js.context.callMethod(
                   'open', ['https://github.com/ajnart/flutter-course']),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(padding: EdgeInsets.all(3)),
-                  Text("GitHub"),
+                  Icon(
+                    MdiIcons.github,
+                    size: MediaQuery.of(context).size.height / 30,
+                  ),
                   Padding(padding: EdgeInsets.all(3)),
-                  Icon(MdiIcons.github),
+                  Text(
+                    "GitHub",
+                    style: TextStyle(
+                        fontSize: MediaQuery.of(context).size.height / 80),
+                  ),
                 ],
               ),
               style: ButtonStyle(
