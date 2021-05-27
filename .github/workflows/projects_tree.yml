@@ -1,0 +1,42 @@
+name: Project Tree
+on:
+  push:
+    paths:
+      - 'projects_tree/**'
+      - '.github/workflows/projects_tree.yml'
+jobs:
+  build_web:
+    name: Build all the apps for the Web
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: subosito/flutter-action@v1
+    - run : |
+        cd linktree
+        flutter pub get
+        flutter build web --web-renderer html --release
+        cd ..
+        cd quizz
+        flutter pub get
+        flutter build web --web-renderer html --release
+        cd ..
+        cd managment_mockup
+        flutter pub get
+        flutter build web --web-renderer html --release
+        cd ..
+        cd projects_tree
+        flutter pub get
+        flutter build web --web-renderer html --release
+        cd ..
+        mkdir projects_tree/build/web/linktree
+        cp -R linktree/build/web/linktree projects_tree/build/web/linktree
+        mkdir projects_tree/build/web/quizz
+        cp -R quizz/build/web/ projects_tree/build/web/quizz
+        mkdir projects_tree/build/web/managment_mockup
+        cp -R managment_mockup/build/web/managment_mockup projects_tree/build/web/managment_mockup
+        cd projects_tree
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@4.1.3
+      with:
+        branch: gh-pages # The branch the action should deploy to.
+        folder: web/build # The folder the action should deploy.
