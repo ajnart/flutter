@@ -25,7 +25,7 @@ class Questions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         margin: EdgeInsets.only(top: 10),
-        child: Row(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (this.questionIndex != this.qna.length) ...[
@@ -34,10 +34,15 @@ class Questions extends StatelessWidget {
                 style: TextStyle(fontSize: 20),
                 textAlign: TextAlign.center,
               ),
-              ...(qna.elementAt(questionIndex)['answers'] as List<String>)
-                  .map((answer) {
-                return Answer(answer, callback);
-              }).toList()
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ...(qna.elementAt(questionIndex)['answers'] as List<String>)
+                      .map((answer) {
+                    return Answer(answer, callback);
+                  }).toList()
+                ],
+              )
             ],
           ],
         ));
