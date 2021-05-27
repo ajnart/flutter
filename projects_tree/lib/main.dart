@@ -15,8 +15,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Apps',
       theme: ThemeData(
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity),
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        bottomSheetTheme:
+            BottomSheetThemeData(backgroundColor: Colors.black.withOpacity(0)),
+      ),
       debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
@@ -37,7 +40,35 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFEFEFE),
+      bottomSheet: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            ElevatedButton(
+              onPressed: () => js.context.callMethod(
+                  'open', ['https://github.com/ajnart/flutter-course']),
+              child: Row(
+                children: [
+                  Padding(padding: EdgeInsets.all(3)),
+                  Text("GitHub"),
+                  Padding(padding: EdgeInsets.all(3)),
+                  Icon(MdiIcons.github),
+                ],
+              ),
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
+                backgroundColor: MaterialStateProperty.all(Colors.black),
+                fixedSize: MaterialStateProperty.all(Size(100, 60)),
+              ),
+            ),
+          ],
+        ),
+      ),
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
@@ -82,27 +113,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       letterSpacing: 0),
                 ),
                 Padding(padding: EdgeInsets.all(8)),
-                ElevatedButton(
-                  onPressed: () => js.context.callMethod(
-                      'open', ['https://github.com/ajnart/flutter-course']),
-                  child: Row(
-                    children: [
-                      Padding(padding: EdgeInsets.all(3)),
-                      Text("GitHub"),
-                      Padding(padding: EdgeInsets.all(3)),
-                      Icon(MdiIcons.github),
-                    ],
-                  ),
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                    ),
-                    backgroundColor: MaterialStateProperty.all(Colors.black),
-                    fixedSize: MaterialStateProperty.all(Size(100, 60)),
-                  ),
-                ),
                 const SizedBox(
                   height: 30,
                 ),
