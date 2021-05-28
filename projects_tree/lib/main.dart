@@ -48,8 +48,8 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             ElevatedButton(
-              onPressed: () => js.context.callMethod(
-                  'open', ['https://github.com/ajnart/flutter-course']),
+              onPressed: () => js.context
+                  .callMethod('open', ['https://github.com/ajnart/flutter']),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -128,7 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Padding(
                       padding: EdgeInsets.all(8),
                       child: SocialCard(
-                          url: '/flutter-course/linktree/',
+                          url: '/flutter/linktree/',
                           asset: './assets/linktree.png',
                           label: "Link Tree",
                           description:
@@ -137,7 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Padding(
                       padding: EdgeInsets.all(8),
                       child: SocialCard(
-                          url: '/flutter-course/managment_mockup/',
+                          url: '/flutter/managment_mockup/',
                           asset: 'assets/managment.png',
                           label: "Managment mockup",
                           description:
@@ -146,7 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Padding(
                       padding: EdgeInsets.all(8),
                       child: SocialCard(
-                        url: '/flutter-course/quizz/',
+                        url: '/flutter/quizz/',
                         description:
                             "My first project! A simple quizz app with a darkmode switch that decides how much you are worth to society",
                         label: "Quizz",
