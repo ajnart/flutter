@@ -70,10 +70,15 @@ class MyHomePage extends StatelessWidget {
                       children: <Widget>[
                         Text(
                           tx.title,
-                          style: TextStyle(fontSize: 18),
+                          style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                        Text(tx.date.toString(),
-                            style: TextStyle(color: Colors.grey))
+                        Text(
+                          tx.date.toString(),
+                          style: TextStyle(color: Colors.grey),
+                        )
                       ],
                     )
                   ],
