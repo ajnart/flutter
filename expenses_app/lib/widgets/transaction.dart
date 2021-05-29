@@ -39,7 +39,7 @@ class Transactions extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      DateFormat('EEEE d H:m').format(tx.date),
+                      DateFormat('EEEE d H:m').format(transactions[idx].date),
                       style: TextStyle(color: Colors.grey),
                     )
                   ],
