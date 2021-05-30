@@ -194,6 +194,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ],
                 ),
+                Padding(
+                  padding: EdgeInsets.all(15),
+                )
               ],
             ),
           ),
