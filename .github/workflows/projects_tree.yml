@@ -1,9 +1,7 @@
 name: Project Tree
 on:
-  push:
-    paths:
-      - 'projects_tree/**'
-      - '.github/workflows/projects_tree.yml'
+  [push]
+
 jobs:
   build_web:
     name: Build all the apps for the Web
