@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
       title: txTitle,
       amount: txAmount,
       date: date,
-      id: date.toString(),
+      id: DateTime.now().toString(),
     );
 
     setState(() {
