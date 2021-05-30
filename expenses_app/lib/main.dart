@@ -5,7 +5,12 @@ import './widgets/new_transaction.dart';
 import './widgets/transaction_list.dart';
 import './models/transaction.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(
+      RootRestorationScope(
+        restorationId: 'root',
+        child: MyApp(),
+      ),
+    );
 
 class MyApp extends StatelessWidget {
   @override
@@ -49,18 +54,30 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
-    // Transaction(
-    //   id: 't1',
-    //   title: 'New Shoes',
-    //   amount: 69.99,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: 't2',
-    //   title: 'Weekly Groceries',
-    //   amount: 16.53,
-    //   date: DateTime.now(),
-    // ),
+    Transaction(
+      id: 't1',
+      title: 'New Shoes',
+      amount: 124,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Weekly Groceries',
+      amount: 75.4,
+      date: DateTime.now().subtract(Duration(days: 1)),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'Spotify premium',
+      amount: 9.99,
+      date: DateTime.now().subtract(Duration(days: 3)),
+    ),
+    Transaction(
+      id: 't4',
+      title: 'Netflix',
+      amount: 15.99,
+      date: DateTime.now().subtract(Duration(days: 3)),
+    ),
   ];
 
   List<Transaction> get _recentTransactions {
