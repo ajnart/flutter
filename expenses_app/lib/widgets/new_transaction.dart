@@ -28,9 +28,11 @@ class NewTransaction extends StatelessWidget {
               controller: amountController,
               // onChanged: (val) => amountInput = val,
             ),
-            FlatButton(
+            TextButton(
               child: Text('Add Transaction'),
-              textColor: Colors.purple,
+              style: ButtonStyle(
+                foregroundColor: MaterialStateProperty.all(Colors.purple),
+              ),
               onPressed: () {
                 addTx(
                   titleController.text,
