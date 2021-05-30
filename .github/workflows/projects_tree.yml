@@ -26,12 +26,18 @@ jobs:
         flutter pub get
         flutter build web --web-renderer html --release
         cd ..
+        cd expenses_app
+        flutter pub get
+        flutter build web --web-renderer html --release
+        cd ..
         mkdir -p projects_tree/build/web/linktree
         cp -R linktree/build/web/* projects_tree/build/web/linktree
         mkdir -p projects_tree/build/web/quizz
         cp -R quizz/build/web/* projects_tree/build/web/quizz
         mkdir -p projects_tree/build/web/managment_mockup
         cp -R managment_mockup/build/web/* projects_tree/build/web/managment_mockup
+        mkdir -p projects_tree/build/web/expenses_app
+        cp -R expenses_app/build/web/* projects_tree/build/web/expenses_app
         cd projects_tree
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@4.1.3

@@ -1,0 +1,53 @@
+name: Expenses 💸
+on:
+  push:
+    paths:
+      - 'expenses_app/**'
+      - '.github/workflows/expenses.yml'
+
+jobs:
+  build_ios:
+    name: Build Flutter (iOS)
+    runs-on: macOS-latest
+    defaults:
+      run:
+        working-directory: ./expenses_app
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-java@v1
+      with:
+        java-version: '12.x'
+    - uses: subosito/flutter-action@v1
+      with:
+          channel: 'dev'
+    - run: flutter pub get
+    - run: flutter clean
+    - run: flutter build ios --release --no-codesign
+    - name: Upload iPA
+      uses: actions/upload-artifact@master
+      with:
+        name: ios-build
+        path: expenses_app/build/ios/iphoneos
+
+  build_apk:
+    name: Build Flutter (Android)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./expenses_app
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-java@v1
+      with:
+        java-version: '12.x'
+    - uses: subosito/flutter-action@v1
+      with:
+          channel: 'dev'
+    - run: flutter pub get
+    - run: flutter build apk --target-platform android-arm,android-arm64 --split-per-abi
+    - run: flutter build appbundle
+    - name: Upload APK
+      uses: actions/upload-artifact@master
+      with:
+        name: apk-build
+        path: expenses_app/build/app/outputs/flutter-apk/
