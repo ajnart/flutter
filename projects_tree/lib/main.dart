@@ -153,6 +153,16 @@ class _MyHomePageState extends State<MyHomePage> {
                         asset: 'assets/quizz.png',
                       ),
                     ),
+                    Padding(
+                      padding: EdgeInsets.all(8),
+                      child: SocialCard(
+                        url: '/flutter/expenses_app/',
+                        description:
+                            "A small app that tracks your weekly expenses.",
+                        label: "Expenses",
+                        asset: 'assets/expenses_app.png',
+                      ),
+                    ),
                   ],
                 ),
               ],
