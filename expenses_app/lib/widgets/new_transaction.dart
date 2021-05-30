@@ -12,13 +12,13 @@ class NewTransaction extends StatefulWidget {
 
 class _NewTransactionState extends State<NewTransaction> {
   final _titleController = TextEditingController();
-  DateTime? _selectedDate;
+  DateTime _selectedDate = DateTime.now();
   final _amountController = TextEditingController();
 
   void _submitData() {
     final String _enteredTitle = _titleController.text;
     final _enteredAmount = double.parse(_amountController.text);
-    if (_enteredTitle.isEmpty || _enteredAmount.isNegative || _selectedDate == null) return;
+    if (_enteredTitle.isEmpty || _enteredAmount.isNegative) return;
 
     widget.addTx(
       _enteredTitle,
@@ -68,7 +68,7 @@ class _NewTransactionState extends State<NewTransaction> {
                 children: <Widget>[
                   Expanded(
                     child: Text(
-                      _selectedDate == null ? 'No date chosen' : 'Date: ${DateFormat.yMd().format(_selectedDate!)}',
+                      'Date: ${DateFormat.yMd().format(_selectedDate)}',
                     ),
                   ),
                   TextButton(
