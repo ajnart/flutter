@@ -4,13 +4,13 @@ const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
   "version.json": "fdf7900a50a737ea88d14ce118d2e5e4",
-"main.dart.js": "967cc35be8ca581e6d92f7639a22dc47",
-"index.html": "c258f44cad7cd0cb665c6c69d9b69105",
-"/": "c258f44cad7cd0cb665c6c69d9b69105",
+"main.dart.js": "20da4fa9a2e63181a5f9028a708b2de9",
+"index.html": "ea671ccd6979844a1f18beba0bc62814",
+"/": "ea671ccd6979844a1f18beba0bc62814",
 "assets/packages/material_design_icons_flutter/lib/fonts/materialdesignicons-webfont.ttf": "174c02fc4609e8fc4389f5d21f16a296",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "assets/AssetManifest.json": "c05ef66c856127125eb505db86f25b7a",
-"assets/NOTICES": "9e9755414e72476bb56ff99b84e1a7dd",
+"assets/NOTICES": "e8b4812ed32f8b55b596cdbe4c44c580",
 "assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
 "assets/assets/expenses_app.png": "8e2543eba43fdd08d77e8635ae175d4c",
 "assets/assets/quizz.png": "f422266ff0b7566d42805ab5c5a57ad8",
