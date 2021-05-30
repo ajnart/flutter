@@ -124,6 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           url: '/flutter/linktree/',
                           asset: './assets/linktree.png',
                           label: "Link Tree",
+                          date: DateTime(2021, 5, 30),
                           description:
                               "A Linktr.ee clone, it provides a simple onepage for all your social media links!"),
                     ),
@@ -134,6 +135,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         description: "A small app that tracks your weekly expenses.",
                         label: "Expenses",
                         asset: 'assets/expenses_app.png',
+                        date: DateTime(2021, 5, 30),
                       ),
                     ),
                     Padding(
