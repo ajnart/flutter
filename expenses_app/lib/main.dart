@@ -1,5 +1,6 @@
-import 'package:expenses_app/widgets/user_transaction.dart';
 import 'package:flutter/material.dart';
+
+import './widgets/user_transactions.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,17 +9,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter App',
-      theme: ThemeData(
-        primaryColor: Colors.green,
-      ),
       home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
+  // String titleInput;
+  // String amountInput;
   final titleController = TextEditingController();
-  final ammounController = TextEditingController(); //
+  final amountController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -27,23 +27,20 @@ class MyHomePage extends StatelessWidget {
         title: Text('Flutter App'),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Container(
-                width: double.infinity,
-                height: 150,
-                child: Card(
-                  color: Colors.green,
-                  elevation: 5,
-                  child: Text("CHARTER"),
-                ),
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Container(
+              width: double.infinity,
+              child: Card(
+                color: Colors.blue,
+                child: Text('CHART!'),
+                elevation: 5,
               ),
-              UserTransaction(),
-            ],
-          ),
+            ),
+            UserTransactions(),
+          ],
         ),
       ),
     );

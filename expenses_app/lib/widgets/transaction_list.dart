@@ -1,28 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import '../models/transaction.dart';
 
-class Transactions extends StatelessWidget {
+class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
-  Transactions(this.transactions);
+
+  TransactionList(this.transactions);
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 800,
+      height: 300,
       child: ListView.builder(
-        itemBuilder: (ctx, idx) {
+        itemBuilder: (ctx, index) {
           return Card(
             child: Row(
               children: <Widget>[
                 Container(
-                  decoration: BoxDecoration(border: Border.all(color: Colors.purple, width: 2)),
+                  margin: EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 15,
+                  ),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.purple,
+                      width: 2,
+                    ),
+                  ),
                   padding: EdgeInsets.all(10),
-                  margin: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                   child: Text(
-                    "${transactions[idx].ammount}€",
+                    '\$${transactions[index].amount}',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 15,
+                      fontSize: 20,
                       color: Colors.purple,
                     ),
                   ),
@@ -31,23 +42,25 @@ class Transactions extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      transactions[idx].title,
+                      transactions[index].title,
                       style: TextStyle(
-                        fontSize: MediaQuery.of(ctx).size.width / 100 + MediaQuery.of(ctx).size.height / 70,
+                        fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
-                      DateFormat('EEEE d H:m').format(transactions[idx].date),
-                      style: TextStyle(color: Colors.grey),
-                    )
+                      DateFormat.yMMMd().format(transactions[index].date),
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
                   ],
                 ),
               ],
             ),
           );
         },
-        itemCount: this.transactions.length,
+        itemCount: transactions.length,
       ),
     );
   }
