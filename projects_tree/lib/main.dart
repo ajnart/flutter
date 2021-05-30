@@ -19,8 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.amber,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        bottomSheetTheme:
-            BottomSheetThemeData(backgroundColor: Colors.white.withOpacity(0)),
+        bottomSheetTheme: BottomSheetThemeData(backgroundColor: Colors.white.withOpacity(0)),
       ),
       debugShowCheckedModeBanner: false,
       home: MyHomePage(),
@@ -35,8 +34,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String socialName = "Flutter Apps";
-  String description =
-      "This repository is a collection of the flutter apps I've built.\n"
+  String description = "This repository is a collection of the flutter apps I've built.\n"
       "Click on any cards bellow to view its deployment !";
 
   @override
@@ -48,8 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             ElevatedButton(
-              onPressed: () => js.context
-                  .callMethod('open', ['https://github.com/ajnart/flutter']),
+              onPressed: () => js.context.callMethod('open', ['https://github.com/ajnart/flutter']),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -113,11 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Text(
                   description,
                   textAlign: TextAlign.center,
-                  style: normalText(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      height: 1.5,
-                      letterSpacing: 0),
+                  style: normalText(fontSize: 16, fontWeight: FontWeight.w400, height: 1.5, letterSpacing: 0),
                 ),
                 Padding(padding: EdgeInsets.all(8)),
                 const SizedBox(
@@ -137,6 +130,15 @@ class _MyHomePageState extends State<MyHomePage> {
                     Padding(
                       padding: EdgeInsets.all(8),
                       child: SocialCard(
+                        url: '/flutter/expenses_app/',
+                        description: "A small app that tracks your weekly expenses.",
+                        label: "Expenses",
+                        asset: 'assets/expenses_app.png',
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(8),
+                      child: SocialCard(
                           url: '/flutter/managment_mockup/',
                           asset: 'assets/managment.png',
                           label: "Managment mockup",
@@ -151,16 +153,6 @@ class _MyHomePageState extends State<MyHomePage> {
                             "My first project! A simple quizz app with a darkmode switch that decides how much you are worth to society",
                         label: "Quizz",
                         asset: 'assets/quizz.png',
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(8),
-                      child: SocialCard(
-                        url: '/flutter/expenses_app/',
-                        description:
-                            "A small app that tracks your weekly expenses.",
-                        label: "Expenses",
-                        asset: 'assets/expenses_app.png',
                       ),
                     ),
                   ],
