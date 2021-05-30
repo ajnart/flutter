@@ -14,12 +14,21 @@ class _NewTransactionState extends State<NewTransaction> {
 
   final amountController = TextEditingController();
 
-  void submitData() {
+  void _submitData() {
     final String enteredTitle = titleController.text;
     final enteredAmount = double.parse(amountController.text);
     if (enteredTitle.isEmpty || enteredAmount.isNegative) return;
     widget.addTx(enteredTitle, enteredAmount);
     Navigator.of(context).pop();
+  }
+
+  void _showDatePicker() {
+    showDatePicker(
+      context: context,
+      firstDate: DateTime.now().subtract(Duration(days: 30)),
+      initialDate: DateTime.now(),
+      lastDate: DateTime.now(),
+    );
   }
 
   @override
@@ -34,13 +43,13 @@ class _NewTransactionState extends State<NewTransaction> {
             TextField(
               decoration: InputDecoration(labelText: 'Title'),
               controller: titleController,
-              onSubmitted: (_) => submitData(),
+              onSubmitted: (_) => _submitData(),
             ),
             TextField(
               keyboardType: TextInputType.number,
               decoration: InputDecoration(labelText: 'Amount'),
               controller: amountController,
-              onSubmitted: (_) => submitData(),
+              onSubmitted: (_) => _submitData(),
             ),
             Container(
               height: 70,
@@ -48,7 +57,7 @@ class _NewTransactionState extends State<NewTransaction> {
                 children: <Widget>[
                   Text('No date chosen'),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () => _showDatePicker(),
                     child: Text(
                       'Choose Date',
                       style: TextStyle(fontWeight: FontWeight.bold),
@@ -59,7 +68,7 @@ class _NewTransactionState extends State<NewTransaction> {
             ),
             ElevatedButton(
               child: Text('Add Transaction'),
-              onPressed: submitData,
+              onPressed: _submitData,
             ),
           ],
         ),
