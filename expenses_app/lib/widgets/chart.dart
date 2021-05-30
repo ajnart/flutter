@@ -17,7 +17,7 @@ class Chart extends StatelessWidget {
             recentTransactions[i].date.year == recentTransactions[i].date.year)
           totalSum += recentTransactions[i].amount;
       }
-      return {'day': DateFormat.E(weekDay), 'ammount': totalSum};
+      return {'day': DateFormat.E().format(weekDay).substring(0, 1), 'ammount': totalSum};
     });
   }
 
@@ -27,11 +27,9 @@ class Chart extends StatelessWidget {
       elevation: 6,
       margin: EdgeInsets.all(20),
       child: Row(
-        children: <Widget>[
-          Column(
-            children: <Widget>[],
-          )
-        ],
+        children: groupedTransactionValues.map((e) {
+          return Text("$e['day']");
+        }).toList(),
       ),
     );
   }
