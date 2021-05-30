@@ -42,7 +42,22 @@ class _NewTransactionState extends State<NewTransaction> {
               controller: amountController,
               onSubmitted: (_) => submitData(),
             ),
-            TextButton(
+            Container(
+              height: 70,
+              child: Row(
+                children: <Widget>[
+                  Text('No date chosen'),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Choose Date',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            ElevatedButton(
               child: Text('Add Transaction'),
               onPressed: submitData,
             ),
