@@ -136,7 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final _mq = MediaQuery.of(context);
     final isLandscape = _mq.orientation == Orientation.landscape;
     final appBar = AppBar(
-      title: Text('Personal Expenses App'),
+      title: const Text('Personal Expenses App'),
       actions: <Widget>[
         if (isLandscape)
           Row(

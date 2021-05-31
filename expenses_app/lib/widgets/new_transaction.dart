@@ -79,7 +79,7 @@ class _NewTransactionState extends State<NewTransaction> {
                     ),
                     TextButton(
                       onPressed: () => _showDatePicker(),
-                      child: Text(
+                      child: const Text(
                         'Choose Date',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
@@ -88,7 +88,7 @@ class _NewTransactionState extends State<NewTransaction> {
                 ),
               ),
               ElevatedButton(
-                child: Text('Add Transaction'),
+                child: const Text('Add Transaction'),
                 onPressed: _submitData,
               ),
             ],
