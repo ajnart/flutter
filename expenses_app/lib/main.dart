@@ -1,5 +1,6 @@
 import 'package:expenses_app/widgets/chart.dart';
 import 'package:flutter/material.dart';
+import 'dart:io';
 
 import './widgets/new_transaction.dart';
 import './widgets/transaction_list.dart';
@@ -179,10 +180,12 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () => _startAddNewTransaction(context),
-      ),
+      floatingActionButton: Platform.isIOS || isLandscape
+          ? Container()
+          : FloatingActionButton(
+              child: Icon(Icons.add),
+              onPressed: () => _startAddNewTransaction(context),
+            ),
     );
   }
 }
