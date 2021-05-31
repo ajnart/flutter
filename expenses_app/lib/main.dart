@@ -1,5 +1,6 @@
 import 'package:expenses_app/widgets/chart.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'dart:io';
 
 import './widgets/new_transaction.dart';
@@ -98,7 +99,12 @@ class _MyHomePageState extends State<MyHomePage> {
       date: date,
       id: DateTime.now().toString(),
     );
-
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Added $txAmount€ on ${DateFormat.MMMMEEEEd().format(date)} for $txTitle'),
+        duration: Duration(seconds: 2),
+      ),
+    );
     setState(() {
       _userTransactions.add(newTx);
     });
