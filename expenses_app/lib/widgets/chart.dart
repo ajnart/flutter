@@ -6,13 +6,13 @@ import 'package:intl/intl.dart';
 class _Transaction {
   final String day;
   final double amount;
-  _Transaction(this.day, this.amount);
+  const _Transaction(this.day, this.amount);
 }
 
 class Chart extends StatelessWidget {
   final List<Transaction> recentTransactions;
 
-  Chart(this.recentTransactions);
+  const Chart(this.recentTransactions);
 
   List<_Transaction> get groupedTransactionValues {
     return List.generate(7, (index) {
