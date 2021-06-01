@@ -4,7 +4,7 @@ class CategoryItem extends StatelessWidget {
   final String title;
   final Color color;
 
-  const CategoryItem({Key? key, required this.title, required this.color}) : super(key: key);
+  const CategoryItem(this.title, this.color);
 
   @override
   Widget build(BuildContext context) {
