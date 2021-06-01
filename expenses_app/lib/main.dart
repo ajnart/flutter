@@ -130,7 +130,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _userTransactions.removeWhere((e) => e.id == id);
     });
   }
-
+  
   @override
   Widget build(BuildContext context) {
     final _mq = MediaQuery.of(context);
@@ -171,11 +171,10 @@ class _MyHomePageState extends State<MyHomePage> {
               Container(
                   height: (_mq.size.height - appBar.preferredSize.height - _mq.padding.top) * 0.3,
                   child: Chart(_recentTransactions)),
-            if (!isLandscape)
-              Container(
-                  height: (_mq.size.height - appBar.preferredSize.height - _mq.padding.top) * 0.7,
-                  child: TransactionList(_userTransactions, _deleteTransaction))
-            else if (_showChart)
+            Container(
+                height: (_mq.size.height - appBar.preferredSize.height - _mq.padding.top) * 0.7,
+                child: TransactionList(_userTransactions, _deleteTransaction)),
+            if (_showChart)
               Container(
                   height: (_mq.size.height - appBar.preferredSize.height - _mq.padding.top) * 0.8,
                   child: Chart(_recentTransactions))
