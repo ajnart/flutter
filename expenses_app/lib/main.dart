@@ -2,7 +2,6 @@ import 'package:expenses_app/widgets/chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
-import 'dart:io';
 
 import './widgets/new_transaction.dart';
 import './widgets/transaction_list.dart';
@@ -81,6 +80,174 @@ class _MyHomePageState extends State<MyHomePage> {
       amount: 15.99,
       date: DateTime.now().subtract(Duration(days: 3)),
     ),
+    Transaction(
+      id: 't1',
+      title: 'New Shoes',
+      amount: 124.0,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Weekly Groceries',
+      amount: 75.4,
+      date: DateTime.now().subtract(Duration(days: 1)),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'Spotify premium',
+      amount: 9.99,
+      date: DateTime.now().subtract(Duration(days: 3)),
+    ),
+    Transaction(
+      id: 't4',
+      title: 'Netflix',
+      amount: 15.99,
+      date: DateTime.now().subtract(Duration(days: 3)),
+    ),
+    Transaction(
+      id: 't1',
+      title: 'New Shoes',
+      amount: 124.0,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Weekly Groceries',
+      amount: 75.4,
+      date: DateTime.now().subtract(Duration(days: 1)),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'Spotify premium',
+      amount: 9.99,
+      date: DateTime.now().subtract(Duration(days: 3)),
+    ),
+    Transaction(
+      id: 't4',
+      title: 'Netflix',
+      amount: 15.99,
+      date: DateTime.now().subtract(Duration(days: 3)),
+    ),
+    Transaction(
+      id: 't1',
+      title: 'New Shoes',
+      amount: 124.0,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Weekly Groceries',
+      amount: 75.4,
+      date: DateTime.now().subtract(Duration(days: 1)),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'Spotify premium',
+      amount: 9.99,
+      date: DateTime.now().subtract(Duration(days: 3)),
+    ),
+    Transaction(
+      id: 't4',
+      title: 'Netflix',
+      amount: 15.99,
+      date: DateTime.now().subtract(Duration(days: 3)),
+    ),
+    Transaction(
+      id: 't1',
+      title: 'New Shoes',
+      amount: 124.0,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Weekly Groceries',
+      amount: 75.4,
+      date: DateTime.now().subtract(Duration(days: 1)),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'Spotify premium',
+      amount: 9.99,
+      date: DateTime.now().subtract(Duration(days: 3)),
+    ),
+    Transaction(
+      id: 't4',
+      title: 'Netflix',
+      amount: 15.99,
+      date: DateTime.now().subtract(Duration(days: 3)),
+    ),
+    Transaction(
+      id: 't1',
+      title: 'New Shoes',
+      amount: 124.0,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Weekly Groceries',
+      amount: 75.4,
+      date: DateTime.now().subtract(Duration(days: 1)),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'Spotify premium',
+      amount: 9.99,
+      date: DateTime.now().subtract(Duration(days: 3)),
+    ),
+    Transaction(
+      id: 't4',
+      title: 'Netflix',
+      amount: 15.99,
+      date: DateTime.now().subtract(Duration(days: 3)),
+    ),
+    Transaction(
+      id: 't1',
+      title: 'New Shoes',
+      amount: 124.0,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Weekly Groceries',
+      amount: 75.4,
+      date: DateTime.now().subtract(Duration(days: 1)),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'Spotify premium',
+      amount: 9.99,
+      date: DateTime.now().subtract(Duration(days: 3)),
+    ),
+    Transaction(
+      id: 't4',
+      title: 'Netflix',
+      amount: 15.99,
+      date: DateTime.now().subtract(Duration(days: 3)),
+    ),
+    Transaction(
+      id: 't1',
+      title: 'New Shoes',
+      amount: 124.0,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Weekly Groceries',
+      amount: 75.4,
+      date: DateTime.now().subtract(Duration(days: 1)),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'Spotify premium',
+      amount: 9.99,
+      date: DateTime.now().subtract(Duration(days: 3)),
+    ),
+    Transaction(
+      id: 't4',
+      title: 'Netflix',
+      amount: 15.99,
+      date: DateTime.now().subtract(Duration(days: 3)),
+    ),
   ];
 
   List<Transaction> get _recentTransactions {
@@ -130,30 +297,28 @@ class _MyHomePageState extends State<MyHomePage> {
       _userTransactions.removeWhere((e) => e.id == id);
     });
   }
-  
+
   @override
   Widget build(BuildContext context) {
     final _mq = MediaQuery.of(context);
-    final isLandscape = _mq.orientation == Orientation.landscape;
     final appBar = AppBar(
       title: const Text('Personal Expenses App'),
       actions: <Widget>[
-        if (isLandscape)
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Show chart',
-                style: TextStyle(color: Theme.of(context).buttonColor),
-              ),
-              Switch(
-                value: _showChart,
-                onChanged: (value) => setState(() {
-                  _showChart = value;
-                }),
-              ),
-            ],
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Show chart',
+              style: TextStyle(color: Theme.of(context).buttonColor),
+            ),
+            Switch(
+              value: _showChart,
+              onChanged: (value) => setState(() {
+                _showChart = value;
+              }),
+            ),
+          ],
+        ),
         IconButton(
           icon: Icon(Icons.add),
           onPressed: () => _startAddNewTransaction(context),
@@ -167,31 +332,22 @@ class _MyHomePageState extends State<MyHomePage> {
           // mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            if (!isLandscape)
+            if (_showChart)
               Container(
                   height: (_mq.size.height - appBar.preferredSize.height - _mq.padding.top) * 0.3,
                   child: Chart(_recentTransactions)),
             Container(
-                height: (_mq.size.height - appBar.preferredSize.height - _mq.padding.top) * 0.7,
+                height:
+                    (_mq.size.height - appBar.preferredSize.height - _mq.padding.top) * (_showChart == true ? 0.7 : 1),
                 child: TransactionList(_userTransactions, _deleteTransaction)),
-            if (_showChart)
-              Container(
-                  height: (_mq.size.height - appBar.preferredSize.height - _mq.padding.top) * 0.8,
-                  child: Chart(_recentTransactions))
-            else
-              Container(
-                  height: (_mq.size.height - appBar.preferredSize.height - _mq.padding.top),
-                  child: TransactionList(_userTransactions, _deleteTransaction)),
           ],
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Platform.isIOS || isLandscape
-          ? Container()
-          : FloatingActionButton(
-              child: Icon(Icons.add),
-              onPressed: () => _startAddNewTransaction(context),
-            ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () => _startAddNewTransaction(context),
+      ),
     );
   }
 }
