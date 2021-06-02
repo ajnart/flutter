@@ -1,28 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:masterborger/models/meal.dart';
+import 'package:masterborger/screens/meal_detail_screen.dart';
 
 class MealItem extends StatelessWidget {
   final int duration;
+  final String id;
   final String title;
   final String imageUrl;
   final Complexity complexity;
   final Affordability affordability;
 
-  void selectMeal() {}
+  void selectMeal(context) {
+    Navigator.of(context).pushNamed(MealDetailScreen.routeName, arguments: id);
+  }
 
-  const MealItem(
-      {Key? key,
-      required this.duration,
-      required this.title,
-      required this.imageUrl,
-      required this.complexity,
-      required this.affordability})
-      : super(key: key);
+  const MealItem({
+    Key? key,
+    required this.duration,
+    required this.title,
+    required this.imageUrl,
+    required this.complexity,
+    required this.affordability,
+    required this.id,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: selectMeal,
+      onTap: () => selectMeal(context),
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
@@ -47,9 +52,9 @@ class MealItem extends StatelessWidget {
                 ),
                 Positioned(
                   bottom: 20,
-                  right: 10,
+                  right: 0,
                   child: Container(
-                    width: 300,
+                    width: 350,
                     color: Colors.black54,
                     padding: const EdgeInsets.symmetric(
                       horizontal: 20,
@@ -57,7 +62,9 @@ class MealItem extends StatelessWidget {
                     ),
                     child: Text(
                       title,
+                      textAlign: TextAlign.right,
                       style: TextStyle(
+                        fontFamily: 'Raleway',
                         fontSize: 26,
                         color: Colors.white,
                         fontWeight: FontWeight.w300,
