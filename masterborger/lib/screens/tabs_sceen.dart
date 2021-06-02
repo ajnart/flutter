@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:masterborger/screens/categories_screen.dart';
+import 'package:masterborger/screens/filters_screen.dart';
 
 import 'favorites_screen.dart';
 
@@ -40,6 +41,16 @@ class _TabsScreenState extends State<TabsScreen> {
         title: Text(_pages.elementAt(_selectedPageIndex).toString().split('Screen')[0]),
       ),
       body: _pages.elementAt(_selectedPageIndex),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.of(context).pushNamed(
+          FiltersScreen.routeName,
+          arguments: {},
+        ),
+        tooltip: 'Filter',
+        child: Icon(Icons.search),
+        elevation: 2.0,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedPageIndex,
         onTap: _selectPage,
