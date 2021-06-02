@@ -63,37 +63,70 @@ class MealDetailScreen extends StatelessWidget {
                 ),
               ),
               buildSectionTitle('Ingredients', context),
-              buildContainer(
-                  ListView.builder(
-                    itemBuilder: (ctx, idx) => Card(
-                      color: Theme.of(context).accentColor,
-                      child: Text(
-                        meal.ingredients[idx],
-                        style: Theme.of(context).textTheme.headline6!.copyWith(fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    itemCount: meal.ingredients.length,
-                  ),
-                  context),
-              buildSectionTitle('Steps', context),
-              buildContainer(
-                  ListView.builder(
-                    itemBuilder: (ctx, idx) => Column(
-                      children: [
-                        ListTile(
-                          leading: CircleAvatar(
-                            child: Text('#${idx + 1}'),
+              Column(
+                children: meal.ingredients
+                    .map(
+                      (e) => Card(
+                        margin: EdgeInsets.all(3),
+                        elevation: 5,
+                        child: Container(
+                          height: 50,
+                          child: Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 25.0),
+                                child: Text('- $e', style: Theme.of(context).textTheme.headline6),
+                              ),
+                            ],
                           ),
-                          title: Text(meal.steps[idx]),
                         ),
-                        Divider(
-                          height: 8,
+                      ),
+                    )
+                    .toList(),
+              ),
+              buildSectionTitle('Steps', context),
+              Column(
+                children: meal.steps
+                    .map(
+                      (e) => Card(
+                        margin: EdgeInsets.all(3),
+                        elevation: 5,
+                        child: Container(
+                          height: 50,
+                          child: Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: CircleAvatar(
+                                  child: Text('#${meal.steps.indexOf(e)}'),
+                                ),
+                              ),
+                              Text(e, style: Theme.of(context).textTheme.headline6),
+                            ],
+                          ),
                         ),
-                      ],
-                    ),
-                    itemCount: meal.steps.length,
-                  ),
-                  context),
+                      ),
+                    )
+                    .toList(),
+              )
+              // buildContainer(
+              //     ListView.builder(
+              //       itemBuilder: (ctx, idx) => Column(
+              //         children: [
+              //           ListTile(
+              //             leading: CircleAvatar(
+              //               child: Text('#${idx + 1}'),
+              //             ),
+              //             title: Text(meal.steps[idx]),
+              //           ),
+              //           Divider(
+              //             height: 8,
+              //           ),
+              //         ],
+              //       ),
+              //       itemCount: meal.steps.length,
+              //     ),
+              //     context),
             ],
           ),
         ),
