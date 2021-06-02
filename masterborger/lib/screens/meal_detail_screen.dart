@@ -37,11 +37,18 @@ class MealDetailScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        actions: <Widget>[
+          ElevatedButton(
+            child: Icon(
+              Icons.home,
+              color: Colors.white,
+            ),
+            onPressed: () => Navigator.of(context).popUntil(
+              ModalRoute.withName('/'),
+            ),
+          ),
+        ],
         title: Text('${meal.title}'),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.of(context).popUntil(ModalRoute.withName('/')),
-        child: Icon(Icons.home),
       ),
       body: SingleChildScrollView(
         child: Container(
