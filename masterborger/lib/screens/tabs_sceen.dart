@@ -27,6 +27,16 @@ class _TabsScreenState extends State<TabsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: <Widget>[
+          ElevatedButton(
+            child: Icon(
+              Icons.favorite,
+              color: Colors.white,
+            ),
+            // The ^ is kinda awesome
+            onPressed: () => _selectPage(_selectedPageIndex ^ 1),
+          ),
+        ],
         title: Text(_pages.elementAt(_selectedPageIndex).toString().split('Screen')[0]),
       ),
       body: _pages.elementAt(_selectedPageIndex),
