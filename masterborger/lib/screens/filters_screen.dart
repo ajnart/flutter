@@ -19,19 +19,18 @@ class _FiltersScreenState extends State<FiltersScreen> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.of(context).pop(),
+        child: const Icon(Icons.home),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      appBar: AppBar(
-          title: Text(
-        "Filter recipes that contain",
-        textAlign: TextAlign.center,
-      )),
+      appBar: AppBar(title: const Text("Filter recipes that contain", textAlign: TextAlign.center)),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.only(top: 30),
         child: Column(
           children: [
+            Text('Adjust your filters', style: Theme.of(context).textTheme.headline6),
             SwitchListTile(
               title: const Text('Lactose-free'),
+              subtitle: const Text('Only include without lactose'),
               value: _lactoseFree,
               onChanged: (bool value) {
                 setState(() {
@@ -42,6 +41,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
             ),
             SwitchListTile(
               title: const Text('Gluten-free'),
+              subtitle: const Text('Only include without gluten'),
               value: _glutenFree,
               onChanged: (bool value) {
                 setState(() {
@@ -52,6 +52,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
             ),
             SwitchListTile(
               title: const Text('Vegan'),
+              subtitle: const Text('Only include vegan recipes'),
               value: _vegan,
               onChanged: (bool value) {
                 setState(() {
@@ -62,6 +63,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
             ),
             SwitchListTile(
               title: const Text('Vegetarian'),
+              subtitle: const Text('Only include vegetarian recipes'),
               value: _vegetarian,
               onChanged: (bool value) {
                 setState(() {
