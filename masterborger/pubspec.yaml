@@ -71,7 +71,7 @@ flutter:
     - family: RobotoCondensed
       fonts:
         - asset: assets/fonts/RobotoCondensed-Regular.ttf
-        - asset: assets/fonts/RobotoCondensed-Italic.tff
+        - asset: assets/fonts/RobotoCondensed-Italic.ttf
           style: italic
         - asset: assets/fonts/RobotoCondensed-Bold.ttf
           weight: 700
