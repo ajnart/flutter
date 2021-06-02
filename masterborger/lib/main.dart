@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
               bodyText2: TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
               headline6: TextStyle(
                 fontFamily: 'RobotoCondensed',
-                fontSize: 24,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
               ))),
       home: CategoriesScreen(),
     );
