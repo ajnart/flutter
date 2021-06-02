@@ -27,7 +27,7 @@ class _TabsScreenState extends State<TabsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Meals'),
+        title: Text(_pages.elementAt(_selectedPageIndex).toString().split('Screen')[0]),
       ),
       body: _pages.elementAt(_selectedPageIndex),
       bottomNavigationBar: BottomNavigationBar(
