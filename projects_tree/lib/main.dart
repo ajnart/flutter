@@ -150,6 +150,16 @@ class _MyHomePageState extends State<MyHomePage> {
                     Padding(
                       padding: EdgeInsets.all(8),
                       child: SocialCard(
+                        url: '/flutter/masterborger/',
+                        description:
+                            "An application containing recipes for different types of food, sorted by categories.",
+                        label: "MasterBorger",
+                        asset: 'assets/masterborger.png',
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(8),
+                      child: SocialCard(
                         url: '/flutter/quizz/',
                         description:
                             "My first project! A simple quizz app with a darkmode switch that decides how much you are worth to society",
