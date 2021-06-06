@@ -14,9 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Ajnart\'s LinkTree 🎄',
-      theme: ThemeData(
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity),
+      theme: ThemeData(primarySwatch: Colors.blue, visualDensity: VisualDensity.adaptivePlatformDensity),
       debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
@@ -31,7 +29,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   String socialName = "Thomas Camlong";
   String description =
-      "Fullstack developer 📌 Bordeaux\nProbably busy losing money by making a faulty DogeCoin trading bot...";
+      "Fullstack developer from Bordeaux, FR\nProbably busy losing money by making a faulty DogeCoin trading bot...";
 
   @override
   Widget build(BuildContext context) {
@@ -101,21 +99,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   description,
                   textAlign: TextAlign.center,
                   style: normalText(
-                      color: textColor,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      height: 1.5,
-                      letterSpacing: 0),
+                      color: textColor, fontSize: 16, fontWeight: FontWeight.w400, height: 1.5, letterSpacing: 0),
                 ),
                 const SizedBox(
                   height: 30,
                 ),
                 Text(
                   'Social links',
-                  style: normalText(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black87),
+                  style: normalText(fontSize: 24, fontWeight: FontWeight.w600, color: Colors.black87),
                 ),
                 Wrap(
                   children: [
@@ -167,8 +158,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Padding(
                       padding: EdgeInsets.all(8),
                       child: SocialButton(
-                        url:
-                            'https://open.spotify.com/user/aroeal250wtx1w7pgaewuno3l',
+                        url: 'https://open.spotify.com/user/aroeal250wtx1w7pgaewuno3l',
                         icon: MdiIcons.spotify,
                         iconColor: Colors.green,
                         label: "Spotify",
@@ -195,7 +185,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.all(15),
+                  padding: EdgeInsets.only(bottom: 50),
                 )
               ],
             ),
