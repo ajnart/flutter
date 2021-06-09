@@ -4,6 +4,8 @@ import 'package:masterborger/screens/tabs_sceen.dart';
 import './screens/categories_screen.dart';
 import './screens/category_meals_screen.dart';
 import './screens/meal_detail_screen.dart';
+import 'dummy_data.dart';
+import 'models/meal.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,6 +17,21 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  List<Meal> _favouriteMeals = [];
+
+  void _toggleFavourite(String mealId) {
+    final existingIndex = _favouriteMeals.indexWhere((element) => element.id == mealId);
+    if (existingIndex >= 0)
+      setState(() {
+        _favouriteMeals.removeAt(existingIndex);
+      });
+    else {
+      setState(() {
+        _favouriteMeals.add(DUMMY_MEALS.firstWhere((element) => element.id == mealId));
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,7 +49,7 @@ class _MyAppState extends State<MyApp> {
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ))),
-      home: TabsScreen(),
+      home: TabsScreen(favouriteMeals: _favouriteMeals),
       routes: {
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
