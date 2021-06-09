@@ -14,6 +14,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+          pageTransitionsTheme: PageTransitionsTheme(builders: {
+            TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+          }),
           primarySwatch: Colors.blue,
           primaryColor: Color.fromRGBO(40, 60, 220, 1),
           textTheme: TextTheme(
