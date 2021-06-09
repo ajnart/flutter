@@ -1,10 +1,13 @@
-// ignore: avoid_web_libraries_in_flutter
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:projects_tree/models/project.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../data/projects.dart';
+import '../data/constants.dart';
+import '../widgets/social_card.dart';
+
 import 'dart:js' as js;
-import './constants.dart';
-import 'social_card.dart';
 
 class LinkTree extends StatefulWidget {
   @override
@@ -15,32 +18,6 @@ class _LinkTreeState extends State<LinkTree> {
   String socialName = "Flutter Apps";
   String description = "This repository is a collection of the flutter apps I've built.\n"
       "Click on any cards bellow to view its deployment !";
-  static List<Project> projects = [
-    Project(
-        url: '/flutter/linktree/',
-        asset: './assets/linktree.png',
-        label: "Link Tree",
-        date: DateTime(2021, 5, 30),
-        description: "A Linktr.ee clone, it provides a simple onepage for all your social media links!"),
-    Project(
-      url: '/flutter/expenses_app/',
-      description: "A small app that tracks your weekly expenses.",
-      label: "Expenses",
-      asset: 'assets/expenses_app.png',
-      date: DateTime(2021, 5, 30),
-    ),
-    Project(
-        url: '/flutter/managment_mockup/',
-        asset: 'assets/managment.png',
-        label: "Managment mockup",
-        description: "Experimenting with mockups in the form of a deshboard UI seen in a YouTube video about flutter"),
-    Project(
-      url: '/flutter/masterborger/',
-      description: "An application containing recipes for different types of food, sorted by categories.",
-      label: "Cooking ideas!",
-      asset: 'assets/masterborger.png',
-    ),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -159,20 +136,4 @@ class MainInfoWidget extends StatelessWidget {
       ),
     );
   }
-}
-
-class Project {
-  final String url;
-  final String asset;
-  final String label;
-  final DateTime? date;
-  final String description;
-
-  Project({
-    required this.url,
-    required this.asset,
-    required this.label,
-    required this.description,
-    this.date,
-  });
 }

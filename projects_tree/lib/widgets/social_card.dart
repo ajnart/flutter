@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'dart:js' as js;
-import 'package:intl/intl.dart';
-
-import 'package:getwidget/getwidget.dart';
 
 class SocialCard extends StatelessWidget {
   SocialCard({
@@ -10,14 +7,12 @@ class SocialCard extends StatelessWidget {
     required this.asset,
     required this.label,
     required this.description,
-    this.date,
   });
 
   final String url;
   final String asset;
   final String label;
   final String description;
-  final DateTime? date;
 
   @override
   Widget build(BuildContext context) {

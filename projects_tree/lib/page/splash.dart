@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'linktree.dart';
+import 'project_tree.dart';
 
 class Splash extends StatefulWidget {
   @override
