@@ -60,7 +60,11 @@ class _RegisterPhoneScreenState extends State<RegisterPhoneScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Enter your French phone number", style: Theme.of(context).textTheme.subtitle1),
+              Text(
+                "Enter your French phone number",
+                style: Theme.of(context).textTheme.subtitle1,
+                textAlign: TextAlign.center,
+              ),
               PhoneNumberWidget(numberValidator),
             ],
           ),

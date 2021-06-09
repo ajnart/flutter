@@ -83,29 +83,31 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Center(
           child: Column(
             children: [
-              Spacer(),
-              ElevatedButton(
-                style: ButtonStyle(elevation: MaterialStateProperty.all(2)),
-                onPressed: () {
-                  Navigator.pushNamed(context, RegisterPhoneScreen.routeName);
-                },
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 10),
-                  child: const Text("Register", style: TextStyle(fontSize: 20, color: Colors.white)),
+              Spacer(flex: 20),
+              SizedBox(
+                width: 200,
+                height: 50,
+                child: ElevatedButton(
+                  style: ButtonStyle(elevation: MaterialStateProperty.all(2)),
+                  onPressed: () {
+                    Navigator.pushNamed(context, RegisterPhoneScreen.routeName);
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 10),
+                    child: const Text("Register", style: TextStyle(fontSize: 20, color: Colors.white)),
+                  ),
                 ),
               ),
-              TextButton(
-                onPressed: () {},
-                child: Text(
-                  "Sign-in",
-                  style: TextStyle(
-                      fontSize: 17,
-                      letterSpacing: 0,
-                      color: Theme.of(context).primaryColor,
-                      fontWeight: FontWeight.bold),
+              Spacer(flex: 1),
+              SizedBox(
+                width: 200,
+                height: 50,
+                child: TextButton(
+                  onPressed: null,
+                  child: const Text("Sign-in", style: TextStyle(fontSize: 17, color: Colors.grey)),
                 ),
               ),
-              Spacer(),
+              Spacer(flex: 20),
             ],
           ),
         ),
