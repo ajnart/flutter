@@ -4,6 +4,8 @@ import 'package:masterborger/screens/tabs_sceen.dart';
 import './screens/categories_screen.dart';
 import './screens/category_meals_screen.dart';
 import './screens/meal_detail_screen.dart';
+import 'dummy_data.dart';
+import 'models/meal.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,6 +17,25 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  List<Meal> _favouriteMeals = [];
+
+  void _toggleFavorite(String mealId) {
+    final existingIndex = _favouriteMeals.indexWhere((element) => element.id == mealId);
+    if (existingIndex >= 0)
+      setState(() {
+        _favouriteMeals.removeAt(existingIndex);
+      });
+    else {
+      setState(() {
+        _favouriteMeals.add(DUMMY_MEALS.firstWhere((element) => element.id == mealId));
+      });
+    }
+  }
+
+  bool _isFavorite(id) {
+    return _favouriteMeals.any((element) => element.id == id);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,9 +53,12 @@ class _MyAppState extends State<MyApp> {
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ))),
-      home: TabsScreen(),
+      home: TabsScreen(_favouriteMeals),
       routes: {
-        MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
+        MealDetailScreen.routeName: (ctx) => MealDetailScreen(
+              _toggleFavorite,
+              _isFavorite,
+            ),
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
         FiltersScreen.routeName: (ctx) => FiltersScreen(),
       },
