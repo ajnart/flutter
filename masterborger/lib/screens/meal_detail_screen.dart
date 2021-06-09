@@ -91,18 +91,25 @@ class MealDetailScreen extends StatelessWidget {
                       (e) => Card(
                         margin: EdgeInsets.all(3),
                         elevation: 5,
-                        child: Container(
-                          height: 50,
-                          child: Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: CircleAvatar(
-                                  child: Text('#${meal.steps.indexOf(e)}'),
-                                ),
+                        child: Expanded(
+                          child: Container(
+                            height: 150,
+                            child: Padding(
+                              padding: const EdgeInsets.all(15.0),
+                              child: Row(
+                                children: [
+                                  CircleAvatar(
+                                    child: Text('#${meal.steps.indexOf(e)}'),
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Flexible(
+                                      child: Text(e,
+                                          textAlign: TextAlign.justify, style: Theme.of(context).textTheme.headline6)),
+                                ],
                               ),
-                              Text(e, style: Theme.of(context).textTheme.headline6),
-                            ],
+                            ),
                           ),
                         ),
                       ),
