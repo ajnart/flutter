@@ -110,6 +110,7 @@ class MainInfoWidget extends StatelessWidget {
                       allowImplicitScrolling: false,
                       children: projects
                           .map((e) => Container(
+                                  
                                   child: SocialCard(
                                 url: e.url,
                                 asset: e.asset,
