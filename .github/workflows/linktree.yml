@@ -17,3 +17,8 @@ jobs:
     - uses: subosito/flutter-action@v1
     - run: flutter pub get
     - run: flutter build web --web-renderer html --release
+    - name: Upload artifact for LinkTree
+        uses: actions/upload-artifact@v2
+        with:
+          name: LinkTree-web
+          path: build/web/

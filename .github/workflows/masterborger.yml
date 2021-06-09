@@ -11,9 +11,13 @@ jobs:
     defaults:
       run:
         working-directory: ./masterborger
-
     steps:
     - uses: actions/checkout@v1
     - uses: subosito/flutter-action@v1
     - run: flutter pub get
     - run: flutter build web --web-renderer html --release
+    - name: Upload artifact for Master Burger
+        uses: actions/upload-artifact@v2
+        with:
+          name: MasterBorger-web
+          path: build/web/
