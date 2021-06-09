@@ -48,7 +48,7 @@ class _PinScreenState extends State<PinScreen> {
         iconTheme: const IconThemeData(color: Colors.black),
         centerTitle: true,
         backgroundColor: Colors.white,
-        title: const Text("Étape 2/2", style: TextStyle(color: Colors.black)),
+        title: const Text("Step 2/2", style: TextStyle(color: Colors.black)),
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -56,7 +56,7 @@ class _PinScreenState extends State<PinScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Text("Tappez votre code PIN", style: Theme.of(context).textTheme.subtitle1),
+              Text("Enter your PIN code", style: Theme.of(context).textTheme.subtitle1),
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: SizedBox(
@@ -76,10 +76,6 @@ class _PinScreenState extends State<PinScreen> {
                     followingFieldDecoration: _pinPutDecoration,
                   ),
                 ),
-              ),
-              TextButton(
-                onPressed: () => _pinPutController.text = '',
-                child: const Text('Clear All'),
               ),
             ],
           ),

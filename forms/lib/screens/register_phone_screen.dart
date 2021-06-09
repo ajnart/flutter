@@ -41,7 +41,7 @@ class _RegisterPhoneScreenState extends State<RegisterPhoneScreen> {
         iconTheme: IconThemeData(color: Colors.black),
         centerTitle: true,
         backgroundColor: Colors.white,
-        title: Text("Étape 1/2", style: TextStyle(color: Colors.black)),
+        title: Text("Step 1/2", style: TextStyle(color: Colors.black)),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
@@ -57,9 +57,10 @@ class _RegisterPhoneScreenState extends State<RegisterPhoneScreen> {
       body: SafeArea(
         child: Container(
           alignment: Alignment.center,
-          child: Row(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Text("Enter your French phone number", style: Theme.of(context).textTheme.subtitle1),
               PhoneNumberWidget(numberValidator),
             ],
           ),
