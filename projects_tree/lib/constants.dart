@@ -6,8 +6,4 @@ TextStyle normalText(
         FontWeight fontWeight = FontWeight.w300,
         double letterSpacing = -0.9,
         double height = 0}) =>
-    GoogleFonts.notoSans(
-        fontSize: fontSize,
-        fontWeight: fontWeight,
-        letterSpacing: letterSpacing,
-        height: height);
+    GoogleFonts.notoSans(fontSize: fontSize, fontWeight: fontWeight, letterSpacing: letterSpacing, height: height);
