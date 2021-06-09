@@ -19,7 +19,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   List<Meal> _favouriteMeals = [];
 
-  void _toggleFavourite(String mealId) {
+  void _toggleFavorite(String mealId) {
     final existingIndex = _favouriteMeals.indexWhere((element) => element.id == mealId);
     if (existingIndex >= 0)
       setState(() {
@@ -30,6 +30,10 @@ class _MyAppState extends State<MyApp> {
         _favouriteMeals.add(DUMMY_MEALS.firstWhere((element) => element.id == mealId));
       });
     }
+  }
+
+  bool _isFavorite(id) {
+    return _favouriteMeals.any((element) => element.id == id);
   }
 
   @override
@@ -49,9 +53,12 @@ class _MyAppState extends State<MyApp> {
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ))),
-      home: TabsScreen(favouriteMeals: _favouriteMeals),
+      home: TabsScreen(_favouriteMeals),
       routes: {
-        MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
+        MealDetailScreen.routeName: (ctx) => MealDetailScreen(
+              _toggleFavorite,
+              _isFavorite,
+            ),
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
         FiltersScreen.routeName: (ctx) => FiltersScreen(),
       },
