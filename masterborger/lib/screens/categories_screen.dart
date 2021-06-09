@@ -12,7 +12,7 @@ class CategoriesScreen extends StatelessWidget {
           .map(
             (catData) => CategoryItem(
               catData.title,
-              catData.color,
+              catData.svg,
               catData.id,
             ),
           )

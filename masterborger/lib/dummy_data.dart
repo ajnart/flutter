@@ -1,58 +1,100 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import './models/category.dart';
 import './models/meal.dart';
 
-const DUMMY_CATEGORIES = const [
+// ignore: non_constant_identifier_names
+List<Category> DUMMY_CATEGORIES = [
   Category(
     id: 'c1',
     title: 'Italian',
-    color: Colors.purple,
+    svg: SvgPicture.asset(
+      "assets/svg/pizza.svg",
+      height: 80,
+      width: 80,
+    ),
   ),
   Category(
     id: 'c2',
     title: 'Quick & Easy',
-    color: Colors.red,
+    svg: SvgPicture.asset(
+      "assets/svg/ramen.svg",
+      height: 80,
+      width: 80,
+    ),
   ),
   Category(
     id: 'c3',
     title: 'Hamburgers',
-    color: Colors.orange,
+    svg: SvgPicture.asset(
+      "assets/svg/hamburger.svg",
+      height: 80,
+      width: 80,
+    ),
   ),
   Category(
     id: 'c4',
     title: 'German',
-    color: Colors.amber,
+    svg: SvgPicture.asset(
+      "assets/svg/sausage.svg",
+      height: 80,
+      width: 80,
+    ),
   ),
   Category(
     id: 'c5',
-    title: 'Light & Lovely',
-    color: Colors.blue,
+    title: 'Mexican',
+    svg: SvgPicture.asset(
+      "assets/svg/taco.svg",
+      height: 80,
+      width: 80,
+    ),
   ),
   Category(
     id: 'c6',
-    title: 'Exotic',
-    color: Colors.green,
+    title: 'Desert',
+    svg: SvgPicture.asset(
+      "assets/svg/pudding.svg",
+      height: 80,
+      width: 80,
+    ),
   ),
   Category(
     id: 'c7',
-    title: 'Breakfast',
-    color: Colors.lightBlue,
+    title: 'Vegan',
+    svg: SvgPicture.asset(
+      "./assets/svg/vegan-food.svg",
+      height: 80,
+      width: 80,
+    ),
   ),
   Category(
     id: 'c8',
     title: 'Asian',
-    color: Colors.lightGreen,
+    svg: SvgPicture.asset(
+      "assets/svg/hainanese-chicken-rice.svg",
+      height: 80,
+      width: 80,
+    ),
   ),
   Category(
     id: 'c9',
     title: 'French',
-    color: Colors.pink,
+    svg: SvgPicture.asset(
+      "assets/svg/masala-papad.svg",
+      height: 80,
+      width: 80,
+    ),
   ),
   Category(
     id: 'c10',
-    title: 'Summer',
-    color: Colors.teal,
+    title: 'Cakes',
+    svg: SvgPicture.asset(
+      "assets/svg/cake.svg",
+      height: 80,
+      width: 80,
+    ),
   ),
 ];
 
