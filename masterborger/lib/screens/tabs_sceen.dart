@@ -47,7 +47,12 @@ class _TabsScreenState extends State<TabsScreen> {
             onPressed: () => _selectPage(_selectedPageIndex ^ 1),
           ),
         ],
-        title: Text(_pages.elementAt(_selectedPageIndex).toString().split('Screen')[0]),
+        title: Row(
+          children: [
+            Icon(Icons.kitchen),
+            Text("Food " + _pages.elementAt(_selectedPageIndex).toString().split('Screen')[0]),
+          ],
+        ),
       ),
       body: _pages.elementAt(_selectedPageIndex),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

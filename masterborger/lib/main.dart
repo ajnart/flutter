@@ -39,11 +39,12 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'List of meals!',
       theme: ThemeData(
           accentColor: Colors.amber,
-          primarySwatch: Colors.pink,
-          canvasColor: Color.fromRGBO(255, 254, 229, 1),
+          primarySwatch: Colors.green,
+          canvasColor: Colors.white,
           fontFamily: 'Raleway',
           textTheme: ThemeData.light().textTheme.copyWith(
               bodyText1: TextStyle(color: Color.fromRGBO(51, 51, 51, 1)),
