@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+
+import 'package:forms/models/user.dart';
+import 'package:forms/screens/pin_screen.dart';
 import 'package:forms/widgets/phone_number.dart';
 
 class RegisterPhoneScreen extends StatefulWidget {
   static const routeName = '/register-phone';
+  final User user;
+
+  RegisterPhoneScreen(this.user);
 
   @override
   _RegisterPhoneScreenState createState() => _RegisterPhoneScreenState();
@@ -23,6 +29,9 @@ class _RegisterPhoneScreenState extends State<RegisterPhoneScreen> {
     setState(() {
       isNumberValid = (numberValidatorRegex.hasMatch(number.replaceAll(' ', '')));
     });
+    if (isNumberValid == true) {
+      widget.user.phone = number;
+    }
   }
 
   @override
@@ -31,21 +40,28 @@ class _RegisterPhoneScreenState extends State<RegisterPhoneScreen> {
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
         centerTitle: true,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         title: Text("Étape 1/2", style: TextStyle(color: Colors.black)),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.arrow_forward),
-        backgroundColor: isNumberValid ? Colors.blue : Colors.grey,
+        child: Icon(
+          Icons.arrow_forward,
+          size: 20,
+        ),
+        backgroundColor: isNumberValid ? Colors.blue[800] : Colors.grey,
         elevation: 2,
         autofocus: false,
-        onPressed: isNumberValid ? () {} : null,
+        onPressed: isNumberValid ? () => Navigator.of(context).pushNamed(PinScreen.RouteName) : null,
       ),
       body: SafeArea(
-        child: Center(
-          child: Container(
-            child: PhoneNumberWidget(numberValidator),
+        child: Container(
+          alignment: Alignment.center,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              PhoneNumberWidget(numberValidator),
+            ],
           ),
         ),
       ),
