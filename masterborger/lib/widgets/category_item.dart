@@ -26,7 +26,10 @@ class CategoryItem extends StatelessWidget {
         child: Column(
           children: [
             svg,
-            Text(title, style: Theme.of(context).textTheme.headline6),
+            Text(
+              title,
+              style: Theme.of(context).textTheme.headline1!.copyWith(color: Colors.black),
+            ),
           ],
         ),
       ),
