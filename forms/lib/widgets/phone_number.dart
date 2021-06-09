@@ -42,7 +42,6 @@ class _PhoneNumberWidgetState extends State<PhoneNumberWidget> {
                     CustomInputFormatter(),
                   ],
                 ),
-                ElevatedButton.icon(onPressed: () {}, icon: Icon(Icons.phone), label: Text("Phone"))
               ],
             ),
           )
