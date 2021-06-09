@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:js' as js;
 import 'package:intl/intl.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'package:getwidget/getwidget.dart';
 
@@ -22,32 +21,37 @@ class SocialCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () => js.context.callMethod('open', [url]),
-      child: GFCard(
-        boxFit: BoxFit.cover,
-        imageOverlay: AssetImage(asset),
-        image: Image.asset(asset),
-        showImage: true,
-        title: GFListTile(
-          title: Column(
+    return Column(
+      children: [
+        Card(
+          clipBehavior: Clip.hardEdge,
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height * 0.5,
+            child: Image.asset(
+              asset,
+              fit: BoxFit.contain,
+            ),
+          ),
+        ),
+        Container(
+          width: 600,
+          child: Column(
             children: [
-              Text(
-                label,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(label, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
               ),
-              if (date != null) Text(DateFormat.yMMMd().format(date!)),
+              Text(description),
+              Divider(),
+              ElevatedButton.icon(
+                icon: Icon(Icons.open_in_new),
+                label: Text("view deployment"),
+                onPressed: () => js.context.callMethod('open', [url]),
+              ),
             ],
           ),
         ),
-        content: Text(description),
-      ),
-      style: ButtonStyle(
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0), side: BorderSide(color: Colors.black26))),
-        backgroundColor: MaterialStateProperty.all(Colors.white),
-        foregroundColor: MaterialStateProperty.all(Color(0xFF000028)),
-      ),
+      ],
     );
   }
 }
