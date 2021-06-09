@@ -15,6 +15,11 @@ class _RegisterPhoneScreenState extends State<RegisterPhoneScreen> {
 
   void numberValidator(String number) {
     // Remove the spaces in the printed output
+    if (number.length == 13 && isNumberValid)
+      setState(() {
+        isNumberValid = false;
+      });
+    else if (number.length != 14) return;
     setState(() {
       isNumberValid = (numberValidatorRegex.hasMatch(number.replaceAll(' ', '')));
     });
@@ -41,23 +46,6 @@ class _RegisterPhoneScreenState extends State<RegisterPhoneScreen> {
         child: Center(
           child: Container(
             child: PhoneNumberWidget(numberValidator),
-            // child: TextFormField(
-            //   autofocus: true,
-            //   //controller: _phoneController,
-            //   cursorColor: Colors.grey,
-            //   maxLengthEnforcement: MaxLengthEnforcement.enforced,
-            //   maxLength: 10,
-            //   maxLines: 1,
-            //   keyboardType: TextInputType.phone,
-            //   onChanged: (e) => numberValidator,
-            //   style: TextStyle(color: Colors.black, fontSize: 40, fontWeight: FontWeight.bold),
-            //   decoration: InputDecoration(
-            //       hintStyle: TextStyle(color: Colors.grey),
-            //       border: InputBorder.none,
-            //       counterText: "",
-            //       contentPadding: EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
-            //       hintText: "06 10 20 30 40"),
-            // ),
           ),
         ),
       ),
