@@ -1,6 +1,7 @@
 // ignore: avoid_web_libraries_in_flutter
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'dart:js' as js;
 import './constants.dart';
 import 'social_card.dart';
@@ -72,6 +73,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final controller = PageController(initialPage: 0);
+
     return Scaffold(
       bottomSheet: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -149,21 +152,43 @@ class _MyHomePageState extends State<MyHomePage> {
                 const SizedBox(
                   height: 30,
                 ),
-                Wrap(
-                  children: projects
-                      .map(
-                        (e) => Padding(
-                          padding: EdgeInsets.all(8),
-                          child: SocialCard(
-                            url: e.url,
-                            asset: e.asset,
-                            label: e.label,
-                            date: e.date,
-                            description: e.description,
+                Center(
+                  child: Directionality(
+                    textDirection: TextDirection.ltr,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        SizedBox(height: 16),
+                        SizedBox(
+                          height: 600,
+                          child: PageView(
+                            controller: controller,
+                            scrollBehavior: ScrollBehavior(),
+                            allowImplicitScrolling: false,
+                            children: projects
+                                .map((e) => Container(
+                                        child: SocialCard(
+                                      url: e.url,
+                                      asset: e.asset,
+                                      label: e.label,
+                                      date: e.date,
+                                      description: e.description,
+                                    )))
+                                .toList(),
                           ),
                         ),
-                      )
-                      .toList(),
+                        SizedBox(height: 16),
+                        Container(
+                          child: SmoothPageIndicator(
+                            controller: controller,
+                            onDotClicked: (e) => controller.page,
+                            count: projects.length,
+                            effect: WormEffect(),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),

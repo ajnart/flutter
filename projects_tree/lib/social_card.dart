@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:js' as js;
 import 'package:intl/intl.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'package:getwidget/getwidget.dart';
 
