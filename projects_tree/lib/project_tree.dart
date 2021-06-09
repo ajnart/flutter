@@ -137,7 +137,6 @@ class MainInfoWidget extends StatelessWidget {
                                 url: e.url,
                                 asset: e.asset,
                                 label: e.label,
-                                date: e.date,
                                 description: e.description,
                               )))
                           .toList(),
