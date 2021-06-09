@@ -18,34 +18,25 @@ class _PhoneNumberWidgetState extends State<PhoneNumberWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Form(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                TextFormField(
-                  autofocus: true,
-                  onChanged: (e) => verifyPhoneNumber(e),
-                  maxLength: 14,
-                  style: TextStyle(color: Colors.black, fontSize: 40, fontWeight: FontWeight.bold),
-                  decoration: InputDecoration(
-                      hintStyle: TextStyle(color: Colors.grey),
-                      border: InputBorder.none,
-                      counterText: "",
-                      contentPadding: EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
-                      hintText: "06 10 20 30 40"),
-                  controller: textController,
-                  keyboardType: TextInputType.phone,
-                  inputFormatters: [
-                    CustomInputFormatter(),
-                  ],
-                ),
-              ],
-            ),
-          )
-        ],
+      child: Container(
+        width: 300,
+        child: TextFormField(
+          autofocus: true,
+          onChanged: (e) => verifyPhoneNumber(e),
+          maxLength: 14,
+          style: TextStyle(color: Colors.black, fontSize: 40, fontWeight: FontWeight.bold),
+          decoration: InputDecoration(
+              hintStyle: TextStyle(color: Colors.grey),
+              border: InputBorder.none,
+              counterText: "",
+              // contentPadding: EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
+              hintText: "06 10 20 30 40"),
+          controller: textController,
+          keyboardType: TextInputType.phone,
+          inputFormatters: [
+            CustomInputFormatter(),
+          ],
+        ),
       ),
     );
   }
