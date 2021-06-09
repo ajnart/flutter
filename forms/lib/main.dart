@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:forms/models/user.dart';
+import 'package:forms/screens/pin_screen.dart';
 import 'package:forms/screens/register_phone_screen.dart';
 
 void main() {
@@ -8,6 +10,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  final User user = new User('Hello', 'dwq');
   final Color darkblue = Color.fromRGBO(40, 60, 220, 1);
   @override
   Widget build(BuildContext context) {
@@ -39,7 +42,8 @@ class MyApp extends StatelessWidget {
           )),
       home: MyHomePage(),
       routes: {
-        RegisterPhoneScreen.routeName: (ctx) => RegisterPhoneScreen(),
+        PinScreen.RouteName: (ctx) => PinScreen(user),
+        RegisterPhoneScreen.routeName: (ctx) => RegisterPhoneScreen(user),
       },
     );
   }
