@@ -36,6 +36,39 @@ class _MyHomePageState extends State<MyHomePage> {
   String socialName = "Flutter Apps";
   String description = "This repository is a collection of the flutter apps I've built.\n"
       "Click on any cards bellow to view its deployment !";
+  static List<Project> projects = [
+    Project(
+        url: '/flutter/linktree/',
+        asset: './assets/linktree.png',
+        label: "Link Tree",
+        date: DateTime(2021, 5, 30),
+        description: "A Linktr.ee clone, it provides a simple onepage for all your social media links!"),
+    Project(
+      url: '/flutter/expenses_app/',
+      description: "A small app that tracks your weekly expenses.",
+      label: "Expenses",
+      asset: 'assets/expenses_app.png',
+      date: DateTime(2021, 5, 30),
+    ),
+    Project(
+        url: '/flutter/managment_mockup/',
+        asset: 'assets/managment.png',
+        label: "Managment mockup",
+        description: "Experimenting with mockups in the form of a deshboard UI seen in a YouTube video about flutter"),
+    Project(
+      url: '/flutter/masterborger/',
+      description: "An application containing recipes for different types of food, sorted by categories.",
+      label: "Cooking ideas!",
+      asset: 'assets/masterborger.png',
+    ),
+    Project(
+      url: '/flutter/quizz/',
+      description:
+          "My first project! A simple quizz app with a darkmode switch that decides how much you are worth to society",
+      label: "Quizz",
+      asset: 'assets/quizz.png',
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -117,57 +150,20 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 30,
                 ),
                 Wrap(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.all(8),
-                      child: SocialCard(
-                          url: '/flutter/linktree/',
-                          asset: './assets/linktree.png',
-                          label: "Link Tree",
-                          date: DateTime(2021, 5, 30),
-                          description:
-                              "A Linktr.ee clone, it provides a simple onepage for all your social media links!"),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(8),
-                      child: SocialCard(
-                        url: '/flutter/expenses_app/',
-                        description: "A small app that tracks your weekly expenses.",
-                        label: "Expenses",
-                        asset: 'assets/expenses_app.png',
-                        date: DateTime(2021, 5, 30),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(8),
-                      child: SocialCard(
-                          url: '/flutter/managment_mockup/',
-                          asset: 'assets/managment.png',
-                          label: "Managment mockup",
-                          description:
-                              "Experimenting with mockups in the form of a deshboard UI seen in a YouTube video about flutter"),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(8),
-                      child: SocialCard(
-                        url: '/flutter/masterborger/',
-                        description:
-                            "An application containing recipes for different types of food, sorted by categories.",
-                        label: "MasterBorger",
-                        asset: 'assets/masterborger.png',
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(8),
-                      child: SocialCard(
-                        url: '/flutter/quizz/',
-                        description:
-                            "My first project! A simple quizz app with a darkmode switch that decides how much you are worth to society",
-                        label: "Quizz",
-                        asset: 'assets/quizz.png',
-                      ),
-                    ),
-                  ],
+                  children: projects
+                      .map(
+                        (e) => Padding(
+                          padding: EdgeInsets.all(8),
+                          child: SocialCard(
+                            url: e.url,
+                            asset: e.asset,
+                            label: e.label,
+                            date: e.date,
+                            description: e.description,
+                          ),
+                        ),
+                      )
+                      .toList(),
                 ),
               ],
             ),
@@ -176,4 +172,20 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+}
+
+class Project {
+  final String url;
+  final String asset;
+  final String label;
+  final DateTime? date;
+  final String description;
+
+  Project({
+    required this.url,
+    required this.asset,
+    required this.label,
+    required this.description,
+    this.date,
+  });
 }
