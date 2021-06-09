@@ -3,8 +3,11 @@ import 'package:masterborger/dummy_data.dart';
 import 'package:masterborger/models/meal.dart';
 
 class MealDetailScreen extends StatelessWidget {
-  static const String routeName = "/meals_detail_screen";
-  const MealDetailScreen({Key? key}) : super(key: key);
+  static const String routeName = "/meal_detail";
+
+  final Function toggleFavorite;
+  final Function isFavorite;
+  const MealDetailScreen(this.toggleFavorite, this.isFavorite);
 
   Widget buildSectionTitle(String text, BuildContext context) {
     return Container(
@@ -36,6 +39,12 @@ class MealDetailScreen extends StatelessWidget {
     final Meal meal = DUMMY_MEALS.firstWhere((element) => element.id == mealId);
 
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        child: Icon(
+          isFavorite(mealId) ? Icons.star : Icons.star_border,
+        ),
+        onPressed: () => toggleFavorite(mealId),
+      ),
       appBar: AppBar(
         actions: <Widget>[
           ElevatedButton(
@@ -91,24 +100,22 @@ class MealDetailScreen extends StatelessWidget {
                       (e) => Card(
                         margin: EdgeInsets.all(3),
                         elevation: 5,
-                        child: Expanded(
-                          child: Container(
-                            height: 150,
-                            child: Padding(
-                              padding: const EdgeInsets.all(15.0),
-                              child: Row(
-                                children: [
-                                  CircleAvatar(
-                                    child: Text('#${meal.steps.indexOf(e)}'),
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Flexible(
-                                      child: Text(e,
-                                          textAlign: TextAlign.justify, style: Theme.of(context).textTheme.headline6)),
-                                ],
-                              ),
+                        child: Container(
+                          height: 150,
+                          child: Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: Row(
+                              children: [
+                                CircleAvatar(
+                                  child: Text('#${meal.steps.indexOf(e)}'),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Flexible(
+                                    child: Text(e,
+                                        textAlign: TextAlign.justify, style: Theme.of(context).textTheme.headline6)),
+                              ],
                             ),
                           ),
                         ),
@@ -116,24 +123,6 @@ class MealDetailScreen extends StatelessWidget {
                     )
                     .toList(),
               )
-              // buildContainer(
-              //     ListView.builder(
-              //       itemBuilder: (ctx, idx) => Column(
-              //         children: [
-              //           ListTile(
-              //             leading: CircleAvatar(
-              //               child: Text('#${idx + 1}'),
-              //             ),
-              //             title: Text(meal.steps[idx]),
-              //           ),
-              //           Divider(
-              //             height: 8,
-              //           ),
-              //         ],
-              //       ),
-              //       itemCount: meal.steps.length,
-              //     ),
-              //     context),
             ],
           ),
         ),
