@@ -10,7 +10,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  final User user = new User('Hello', 'dwq');
+  final User user = new User('Hello', '');
   final Color darkblue = Color.fromRGBO(40, 60, 220, 1);
   @override
   Widget build(BuildContext context) {
@@ -91,13 +91,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 10),
-                  child: Text("S'inscrire", style: TextStyle(fontSize: 20, color: Colors.white)),
+                  child: const Text("Register", style: TextStyle(fontSize: 20, color: Colors.white)),
                 ),
               ),
               TextButton(
                 onPressed: () {},
                 child: Text(
-                  "J'ai déjà un compte",
+                  "Sign-in",
                   style: TextStyle(
                       fontSize: 17,
                       letterSpacing: 0,
