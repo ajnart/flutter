@@ -19,7 +19,7 @@ class _PhoneNumberWidgetState extends State<PhoneNumberWidget> {
   Widget build(BuildContext context) {
     return Container(
       child: Container(
-        width: 300,
+        width: 270,
         child: TextFormField(
           autofocus: true,
           onChanged: (e) => verifyPhoneNumber(e),
