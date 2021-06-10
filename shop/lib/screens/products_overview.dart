@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop/models/product.dart';
+import 'package:shop/widgets/product_item.dart';
 
 class ProductsOverviewScreen extends StatelessWidget {
   static final List<Product> loadedProducts = [
@@ -48,7 +49,9 @@ class ProductsOverviewScreen extends StatelessWidget {
           crossAxisSpacing: 5,
           mainAxisSpacing: 10,
         ),
-        itemBuilder: (ctx, i) => Container(),
+        itemBuilder: (ctx, i) => Container(
+          child: ProductItem(loadedProducts.elementAt(i)),
+        ),
       ),
     );
   }
