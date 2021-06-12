@@ -42,4 +42,8 @@ class Products with ChangeNotifier {
     // Notify the listerners that the data has changed.
     notifyListeners();
   }
+
+  Product findById(String id) {
+    return _items.firstWhere((element) => element.id == id);
+  }
 }
