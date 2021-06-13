@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Shop',
         theme: ThemeData(
-          textTheme: TextTheme(
-            headline1: TextStyle(fontFamily: 'Anton'),
+          textTheme: const TextTheme(
+            headline1: const TextStyle(fontFamily: 'Anton'),
           ),
           primarySwatch: Colors.purple,
           accentColor: Colors.deepOrange,

@@ -20,7 +20,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("MyShop"),
+        title: const Text("MyShop"),
         actions: [
           PopupMenuButton(
             onSelected: (Filters filter) {
@@ -31,8 +31,8 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
               });
             },
             itemBuilder: (_) => [
-              PopupMenuItem(child: Text('Only favorites'), value: Filters.Favorites),
-              PopupMenuItem(child: Text('Show all'), value: Filters.All),
+              const PopupMenuItem(child: Text('Only favorites'), value: Filters.Favorites),
+              const PopupMenuItem(child: Text('Show all'), value: Filters.All),
             ],
             icon: Icon(Icons.more_vert),
           ),
