@@ -16,6 +16,14 @@ class Cart with ChangeNotifier {
     return {..._items};
   }
 
+  double get getTotal {
+    double total = 0.0;
+    _items.forEach((key, value) {
+      total += value.price * value.quantity;
+    });
+    return total;
+  }
+
   int get countItems {
     int quantity = 0;
     _items.forEach((key, value) {
