@@ -29,7 +29,7 @@ class CartScreen extends StatelessWidget {
                   Chip(
                     backgroundColor: Theme.of(context).primaryColor,
                     label: Consumer<Cart>(
-                      builder: (_, e, widget) => Text('${e.getTotal}€',
+                      builder: (_, e, widget) => Text('${e.getTotal.toStringAsFixed(2)}€',
                           style: TextStyle(color: Theme.of(context).primaryTextTheme.headline1!.color, fontSize: 15)),
                     ),
                   ),
