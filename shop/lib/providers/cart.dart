@@ -24,6 +24,11 @@ class Cart with ChangeNotifier {
     return total;
   }
 
+  void clear() {
+    _items.clear();
+    notifyListeners();
+  }
+
   int get countItems {
     int quantity = 0;
     _items.forEach((key, value) {
