@@ -61,25 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 const SizedBox(
                   height: 40,
                 ),
-                Container(
-                  width: 150,
-                  height: 150,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.white,
-                    image: DecorationImage(
-                      fit: BoxFit.fill,
-                      image: AssetImage('assets/thomas.jpg'),
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black12,
-                        offset: Offset(0, 4),
-                        blurRadius: 4.0,
-                      )
-                    ],
-                  ),
-                ),
+                ProfilePicture(),
                 const SizedBox(
                   height: 25,
                 ),
@@ -104,86 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 const SizedBox(
                   height: 30,
                 ),
-                Text(
-                  'Social links',
-                  style: normalText(fontSize: 24, fontWeight: FontWeight.w600, color: Colors.black87),
-                ),
-                Wrap(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.all(8),
-                      child: SocialButton(
-                        url: 'https://www.malt.fr/profile/thomascamlong',
-                        icon: MdiIcons.devTo,
-                        iconColor: Colors.black,
-                        label: "Malt",
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(8),
-                      child: SocialButton(
-                        url: 'https://github.com/ajnart',
-                        icon: MdiIcons.github,
-                        iconColor: Colors.black,
-                        label: "GitHub",
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(8),
-                      child: SocialButton(
-                        url: 'https://www.linkedin.com/in/thomas-camlong/',
-                        icon: MdiIcons.linkedin,
-                        iconColor: Colors.blue.shade800,
-                        label: "LinkedIn",
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(8),
-                      child: SocialButton(
-                        url: 'https://twitter.com/ajnavocado',
-                        icon: MdiIcons.twitter,
-                        iconColor: Colors.lightBlue,
-                        label: "Twitter",
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(8),
-                      child: SocialButton(
-                        url: 'https://m.me/camlong.thomas',
-                        icon: MdiIcons.facebookMessenger,
-                        iconColor: Colors.blueAccent,
-                        label: "Messenger",
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(8),
-                      child: SocialButton(
-                        url: 'https://open.spotify.com/user/aroeal250wtx1w7pgaewuno3l',
-                        icon: MdiIcons.spotify,
-                        iconColor: Colors.green,
-                        label: "Spotify",
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(8),
-                      child: SocialButton(
-                        url: 'https://www.instagram.com/thomas.cmlg/',
-                        icon: MdiIcons.instagram,
-                        iconColor: Colors.purple,
-                        label: "Instagram",
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(8),
-                      child: SocialButton(
-                        url: 'mailto://thomascamlong.pro@gmail.com',
-                        icon: MdiIcons.gmail,
-                        iconColor: Colors.red.shade800,
-                        label: "Mail",
-                      ),
-                    ),
-                  ],
-                ),
+                SocialButtonsWrap(),
                 Padding(
                   padding: EdgeInsets.only(bottom: 50),
                 )
@@ -191,6 +94,97 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class SocialButtonsWrap extends StatelessWidget {
+  const SocialButtonsWrap({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      children: [
+        SocialButton(
+          url: 'https://www.malt.fr/profile/thomascamlong',
+          icon: MdiIcons.devTo,
+          iconColor: Colors.black,
+          label: "Malt",
+        ),
+        SocialButton(
+          url: 'https://github.com/ajnart',
+          icon: MdiIcons.github,
+          iconColor: Colors.black,
+          label: "GitHub",
+        ),
+        SocialButton(
+          url: 'https://www.linkedin.com/in/thomas-camlong/',
+          icon: MdiIcons.linkedin,
+          iconColor: Colors.blue.shade800,
+          label: "LinkedIn",
+        ),
+        SocialButton(
+          url: 'https://twitter.com/ajnavocado',
+          icon: MdiIcons.twitter,
+          iconColor: Colors.lightBlue,
+          label: "Twitter",
+        ),
+        SocialButton(
+          url: 'https://m.me/camlong.thomas',
+          icon: MdiIcons.facebookMessenger,
+          iconColor: Colors.blueAccent,
+          label: "Messenger",
+        ),
+        SocialButton(
+          url: 'https://open.spotify.com/user/aroeal250wtx1w7pgaewuno3l',
+          icon: MdiIcons.spotify,
+          iconColor: Colors.green,
+          label: "Spotify",
+        ),
+        SocialButton(
+          url: 'https://www.instagram.com/thomas.cmlg/',
+          icon: MdiIcons.instagram,
+          iconColor: Colors.purple,
+          label: "Instagram",
+        ),
+        SocialButton(
+          url: 'mailto://thomascamlong.pro@gmail.com',
+          icon: MdiIcons.gmail,
+          iconColor: Colors.red.shade800,
+          label: "Mail",
+        ),
+      ],
+    );
+  }
+}
+
+class ProfilePicture extends StatelessWidget {
+  const ProfilePicture({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 150,
+      height: 150,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: Colors.white,
+        image: DecorationImage(
+          fit: BoxFit.fill,
+          image: AssetImage('assets/thomas.jpg'),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            offset: Offset(0, 4),
+            blurRadius: 4.0,
+          )
+        ],
       ),
     );
   }
