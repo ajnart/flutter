@@ -3,26 +3,30 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "version.json": "21cb894d9a3d5562bb2661d9e6e5b642",
-"main.dart.js": "1c10074ef20995da96155370127018c9",
-"index.html": "1512d78442ad9a58d90f1de799a29eb8",
-"/": "1512d78442ad9a58d90f1de799a29eb8",
-"assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
-"assets/AssetManifest.json": "d51494a03a5ff6a86cac9e1acd28c21b",
-"assets/NOTICES": "0c05e8176fe97d6999ff718817cf8c1d",
-"assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
-"assets/assets/fonts/OpenSans-Regular.ttf": "5a798cdadc7cd321e3f72425b70bface",
-"assets/assets/fonts/Quicksand-Bold.ttf": "809cd8ab97c465b57cb1a44b1795f12c",
-"assets/assets/fonts/Quicksand-Light.ttf": "5d51b01f8405b8c5ae5df55a8c3019cc",
-"assets/assets/fonts/Quicksand-Regular.ttf": "678b12a6a938c32eb5fa88f2f439c2df",
-"assets/assets/fonts/Quicksand-Medium.ttf": "f65d1a07e0f4521c99d900e31e4bc530",
-"assets/assets/fonts/OpenSans-Bold.ttf": "0062c34665a3fc0f2278cd4e955702ec",
-"assets/assets/images/empty.png": "a242de1c25005d2c54f9e694be2ea1ed",
-"assets/FontManifest.json": "f59de555acf0d9d4489d3f2c3c9ad78a",
+  "canvaskit/canvaskit.js": "43fa9e17039a625450b6aba93baf521e",
+"canvaskit/profiling/canvaskit.js": "f3bfccc993a1e0bfdd3440af60d99df4",
+"canvaskit/profiling/canvaskit.wasm": "a9610cf39260f60fbe7524a785c66101",
+"canvaskit/canvaskit.wasm": "04ed3c745ff1dee16504be01f9623498",
+"version.json": "ac85c563c9b4e371ee474e62a0e68b5e",
+"manifest.json": "5ba02318e0be9c01d601688c036019c6",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
-"manifest.json": "5ba02318e0be9c01d601688c036019c6",
-"favicon.png": "5dcef449791fa27946b3d35ad8803796"
+"main.dart.js": "7925eef8c99c27e853b1d89e221d0837",
+"favicon.png": "5dcef449791fa27946b3d35ad8803796",
+"index.html": "31cbccacd89dd4b4fde08bebf0d841e7",
+"/": "31cbccacd89dd4b4fde08bebf0d841e7",
+"assets/FontManifest.json": "f59de555acf0d9d4489d3f2c3c9ad78a",
+"assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
+"assets/AssetManifest.json": "d51494a03a5ff6a86cac9e1acd28c21b",
+"assets/assets/fonts/OpenSans-Regular.ttf": "5a798cdadc7cd321e3f72425b70bface",
+"assets/assets/fonts/Quicksand-Light.ttf": "5d51b01f8405b8c5ae5df55a8c3019cc",
+"assets/assets/fonts/Quicksand-Medium.ttf": "f65d1a07e0f4521c99d900e31e4bc530",
+"assets/assets/fonts/Quicksand-Regular.ttf": "678b12a6a938c32eb5fa88f2f439c2df",
+"assets/assets/fonts/OpenSans-Bold.ttf": "0062c34665a3fc0f2278cd4e955702ec",
+"assets/assets/fonts/Quicksand-Bold.ttf": "809cd8ab97c465b57cb1a44b1795f12c",
+"assets/assets/images/empty.png": "a242de1c25005d2c54f9e694be2ea1ed",
+"assets/NOTICES": "67352843b5f7816e5928ac4b4e3d90d2",
+"assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e"
 };
 
 // The application shell files that are downloaded before a service worker can
