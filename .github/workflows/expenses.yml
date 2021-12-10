@@ -1,4 +1,5 @@
 name: Expenses 💸
+
 on:
   push:
     paths:
